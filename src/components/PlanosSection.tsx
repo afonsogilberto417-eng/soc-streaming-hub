@@ -9,18 +9,13 @@ const plans = [
   },
   {
     name: "Mensal 2 Telas",
-    price: "R$ 35,00",
+    price: "R$ 44,99",
     features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
     highlight: true,
   },
   {
-    name: "Trimestral 1 Tela",
-    price: "R$ 80,00",
-    features: ["1 Tela", "4K", "Full HD", "HD", "SD"],
-  },
-  {
     name: "Trimestral 2 Telas",
-    price: "R$ 100,00",
+    price: "R$ 114,97",
     features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
   },
 ];
@@ -38,7 +33,7 @@ const PlanosSection = () => {
           Escolha seu <span className="text-gradient-neon">plano</span>
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
