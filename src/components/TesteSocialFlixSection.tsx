@@ -35,7 +35,7 @@ const TesteSocialFlixSection = () => {
           </div>
 
           <div className="flex items-baseline gap-2 mb-8">
-            <span className="text-4xl md:text-5xl font-display font-bold text-gradient-neon">
+            <span className="text-2xl font-display font-bold text-gradient-neon">
               GRÁTIS
             </span>
             <span className="text-muted-foreground text-lg">/ 7 dias</span>
