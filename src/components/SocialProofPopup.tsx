@@ -76,7 +76,7 @@ const SocialProofPopup = () => {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 120, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 24 }}
-            className="pointer-events-auto bg-card/90 backdrop-blur-lg border border-border/50 rounded-xl px-4 py-3 shadow-lg shadow-primary/10 max-w-[280px] sm:max-w-xs"
+            className="pointer-events-auto bg-card/90 backdrop-blur-lg border border-border/50 rounded-xl px-5 py-4 shadow-lg shadow-primary/10 max-w-[320px] sm:max-w-sm"
           >
             <div className="flex items-start gap-3">
               {/* Pulsing dot */}
