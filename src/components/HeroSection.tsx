@@ -28,14 +28,6 @@ const HeroSection = () => {
           Plataforma completa de streaming com mais de 500 canais, filmes, séries e futebol ao vivo. Qualidade 4K, Full HD, HD e SD, estabilidade e ativação imediata.
         </p>
 
-        <motion.a
-          href="#planos"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="px-10 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300"
-        >
-          TESTE GRÁTIS POR 4 HORAS
-        </motion.a>
       </motion.div>
 
       {/* Bottom fade */}
