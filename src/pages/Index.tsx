@@ -8,10 +8,12 @@ import AvaliacoesSection from "@/components/AvaliacoesSection";
 import ContatoSection from "@/components/ContatoSection";
 import OfertaFinalSection from "@/components/OfertaFinalSection";
 import Footer from "@/components/Footer";
+import SocialProofPopup from "@/components/SocialProofPopup";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SocialProofPopup />
       <HeroSection />
       <TesteSocialFlixSection />
       <JornadaSection />
