@@ -53,10 +53,21 @@
 @layer base {
   * {
     @apply border-border;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    -webkit-user-drag: none;
+  }
+
+  img {
+    pointer-events: none;
+    -webkit-user-drag: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
