@@ -1,0 +1,87 @@
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
+
+const plans = [
+  {
+    name: "Mensal 1 Tela",
+    price: "R$ 30,00",
+    features: ["1 Tela", "4K", "Full HD", "HD", "SD"],
+  },
+  {
+    name: "Mensal 2 Telas",
+    price: "R$ 35,00",
+    features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
+    highlight: true,
+  },
+  {
+    name: "Trimestral 1 Tela",
+    price: "R$ 80,00",
+    features: ["1 Tela", "4K", "Full HD", "HD", "SD"],
+  },
+  {
+    name: "Trimestral 2 Telas",
+    price: "R$ 100,00",
+    features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
+  },
+];
+
+const PlanosSection = () => {
+  return (
+    <section id="planos" className="py-24 px-4 bg-gradient-section">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-display font-bold text-center mb-16"
+        >
+          Escolha seu <span className="text-gradient-neon">plano</span>
+        </motion.h2>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {plans.map((plan, i) => (
+            <motion.div
+              key={plan.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className={`card-glass rounded-2xl p-6 flex flex-col relative ${
+                plan.highlight ? "border-primary/60 glow-green" : ""
+              }`}
+            >
+              {plan.highlight && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold font-display uppercase tracking-wider">
+                  Popular
+                </span>
+              )}
+
+              <h3 className="text-lg font-display font-bold mb-2 text-foreground">{plan.name}</h3>
+              <p className="text-3xl font-display font-bold text-gradient-neon mb-6">{plan.price}</p>
+
+              <ul className="space-y-3 mb-8 flex-1">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <motion.a
+                href="#"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="block text-center px-6 py-3 rounded-lg bg-primary font-display font-bold text-primary-foreground hover:glow-green-strong transition-shadow duration-300"
+              >
+                ASSINAR AGORA
+              </motion.a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default PlanosSection;
