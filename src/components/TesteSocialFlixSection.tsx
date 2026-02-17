@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Rocket, Tv, Smartphone, Lock, Check } from "lucide-react";
+import { Rocket, Tv, Smartphone, Clock, Check } from "lucide-react";
 
 const TesteSocialFlixSection = () => {
   return (
@@ -12,11 +12,11 @@ const TesteSocialFlixSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
             🔥 Teste <span className="text-gradient-neon">SocialFlix</span>
           </h2>
-          <p className="text-xl md:text-2xl text-foreground font-display font-semibold mb-2">
-            Experimente Antes de Assinar
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            Experimente a SocialFlix gratuitamente por 7 dias e descubra a melhor experiência em streaming. Exclusivo para Android.
           </p>
         </motion.div>
 
@@ -28,36 +28,29 @@ const TesteSocialFlixSection = () => {
           className="card-glass rounded-2xl p-8 md:p-10 max-w-2xl mx-auto"
         >
           <div className="flex items-center gap-3 mb-6">
-            <Rocket className="w-7 h-7 text-primary" />
+            <Rocket className="w-7 h-7 text-accent" />
             <h3 className="text-2xl font-display font-bold text-foreground">
-              Experimente por 7 Dias
+              🚀 Teste Completo – 7 Dias Grátis
             </h3>
-          </div>
-
-          <div className="flex items-baseline gap-2 mb-8">
-            <span className="text-2xl font-display font-bold text-gradient-neon">
-              GRÁTIS
-            </span>
-            <span className="text-muted-foreground text-lg">/ 7 dias</span>
           </div>
 
           <ul className="space-y-4 mb-8">
             <li className="flex items-center gap-3 text-foreground">
-              <Tv className="w-5 h-5 text-primary flex-shrink-0" />
-              Teste todos os recursos sem compromisso
+              <Clock className="w-5 h-5 text-primary flex-shrink-0" />
+              Acesso completo por 7 dias
             </li>
             <li className="flex items-center gap-3 text-foreground">
               <Smartphone className="w-5 h-5 text-primary flex-shrink-0" />
               Disponível apenas para sistema Android
             </li>
             <li className="flex items-center gap-3 text-foreground">
-              <Lock className="w-5 h-5 text-primary flex-shrink-0" />
-              Acesso completo à plataforma
+              <Tv className="w-5 h-5 text-primary flex-shrink-0" />
+              Teste todos os recursos sem compromisso
             </li>
           </ul>
 
           <p className="text-muted-foreground mb-8 text-center">
-            Explore tudo antes de escolher seu plano.
+            Ideal para explorar tudo antes de escolher seu plano.
           </p>
 
           <motion.a
@@ -66,7 +59,7 @@ const TesteSocialFlixSection = () => {
             whileTap={{ scale: 0.97 }}
             className="block text-center px-8 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-6"
           >
-            👉 COMEÇAR TESTE 7 DIAS – Pix ou Cartão de Crédito
+            👉 COMEÇAR TESTE 7 DIAS – Pix ou Cartão
           </motion.a>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
