@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 const plans = [
   {
     name: "Mensal 1 Tela",
-    price: "R$ 30,00",
+    price: "R$ 34,99",
     features: ["1 Tela", "4K", "Full HD", "HD", "SD"],
   },
   {
