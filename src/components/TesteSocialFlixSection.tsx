@@ -36,7 +36,7 @@ const TesteSocialFlixSection = () => {
 
           <div className="flex items-baseline gap-2 mb-8">
             <span className="text-4xl md:text-5xl font-display font-bold text-gradient-neon">
-              R$ 9,99
+              GRÁTIS
             </span>
             <span className="text-muted-foreground text-lg">/ 7 dias</span>
           </div>
