@@ -32,7 +32,7 @@ const AcessoSection = () => {
           O que você <span className="text-gradient-neon">tem acesso</span>
         </motion.h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
           {items.map((item, i) => (
             <motion.div
               key={item.label}

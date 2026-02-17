@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto flex flex-col items-center gap-6">
         <img src={logo} alt="SocialFlix" className="w-12 h-12 rounded-full" />
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 sm:gap-6 w-full sm:w-auto">
           <div className="card-glass rounded-xl px-5 py-3 flex items-center gap-3">
             <ShieldCheck className="w-8 h-8 text-primary" />
             <div className="text-left">

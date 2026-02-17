@@ -3,9 +3,9 @@ import logo from "@/assets/socialflix-logo.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-hero px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-hero px-5 md:px-8 overflow-hidden">
       {/* Ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full bg-primary/10 blur-[80px] md:blur-[120px] pointer-events-none" />
       
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
