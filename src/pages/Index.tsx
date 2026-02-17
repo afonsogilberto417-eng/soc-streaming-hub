@@ -5,6 +5,7 @@ import AcessoSection from "@/components/AcessoSection";
 import PlanosSection from "@/components/PlanosSection";
 import CompatibilidadeSection from "@/components/CompatibilidadeSection";
 import ContatoSection from "@/components/ContatoSection";
+import OfertaFinalSection from "@/components/OfertaFinalSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -17,6 +18,7 @@ const Index = () => {
       <PlanosSection />
       <CompatibilidadeSection />
       <ContatoSection />
+      <OfertaFinalSection />
       <Footer />
     </div>
   );
