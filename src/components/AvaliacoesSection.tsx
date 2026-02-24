@@ -5,6 +5,7 @@ import WhatsAppChat from "./WhatsAppChat";
 const conversations = [
   {
     name: "Carlos Henrique",
+    avatar: "https://randomuser.me/api/portraits/men/32.jpg",
     messages: [
       { from: "client" as const, text: "Olá, tudo bem? Vi o anúncio de vocês e fiquei interessado. Eu uso bastante no Android aqui em casa. Queria saber se realmente roda liso ou se costuma travar.", time: "19:42" },
       { from: "atendimento" as const, text: "Oi, tudo bem! Pode ficar tranquilo, nosso sistema é otimizado para rodar estável no Android.", time: "19:44" },
@@ -14,6 +15,7 @@ const conversations = [
   },
   {
     name: "Lucas Almeida",
+    avatar: "https://randomuser.me/api/portraits/men/45.jpg",
     messages: [
       { from: "client" as const, text: "Boa noite. Eu gosto de assistir futebol ao vivo e já tive problema com outros serviços. Queria saber se o de vocês aguenta bem.", time: "21:10" },
       { from: "atendimento" as const, text: "Boa noite! Sim, nossos servidores são preparados para eventos ao vivo.", time: "21:12" },
@@ -23,6 +25,7 @@ const conversations = [
   },
   {
     name: "Mariana Souza",
+    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     messages: [
       { from: "client" as const, text: "Passei aqui só para agradecer. Peguei o teste de 7 dias e gostei bastante da estabilidade. Navegação simples, canais funcionando e filmes atualizados.", time: "14:20" },
       { from: "atendimento" as const, text: "Agradecemos demais pelo retorno 💚", time: "14:22" },
@@ -30,6 +33,7 @@ const conversations = [
   },
   {
     name: "Rafael Lima",
+    avatar: "https://randomuser.me/api/portraits/men/22.jpg",
     messages: [
       { from: "client" as const, text: "Estou usando no celular e na TV Box já tem alguns dias. O aplicativo é leve, abre rápido e até agora não tive nenhum problema.", time: "10:45" },
       { from: "atendimento" as const, text: "Ficamos muito felizes em saber disso!", time: "10:47" },
@@ -37,6 +41,7 @@ const conversations = [
   },
   {
     name: "Juliana Martins",
+    avatar: "https://randomuser.me/api/portraits/women/28.jpg",
     messages: [
       { from: "client" as const, text: "Mesmo com minha internet não sendo das melhores, a transmissão ficou estável. Testei no notebook e rodou super bem. Gostei da qualidade.", time: "16:30" },
       { from: "atendimento" as const, text: "Muito obrigado pelo feedback 🙌", time: "16:32" },
@@ -44,6 +49,7 @@ const conversations = [
   },
   {
     name: "Fernanda Rocha",
+    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
     messages: [
       { from: "client" as const, text: "Achei muito fácil de instalar. Não tenho muita prática com aplicativo, mas foi bem simples. A qualidade em HD e Full HD faz diferença.", time: "11:05" },
       { from: "atendimento" as const, text: "Obrigado por compartilhar sua experiência 💚", time: "11:07" },
@@ -51,6 +57,7 @@ const conversations = [
   },
   {
     name: "Bruno Oliveira",
+    avatar: "https://randomuser.me/api/portraits/men/55.jpg",
     messages: [
       { from: "client" as const, text: "Gostei bastante da rapidez do sistema. A ativação foi praticamente imediata e o suporte respondeu rápido.", time: "09:15" },
       { from: "atendimento" as const, text: "Agradecemos muito pela confiança!", time: "09:17" },
@@ -58,6 +65,7 @@ const conversations = [
   },
   {
     name: "Camila Santos",
+    avatar: "https://randomuser.me/api/portraits/women/33.jpg",
     messages: [
       { from: "client" as const, text: "Testei aquelas 4 horas antes de fechar e deu para avaliar bem a qualidade. Funcionou certinho e me deu segurança para continuar.", time: "15:40" },
       { from: "atendimento" as const, text: "Ficamos felizes que tenha gostado!", time: "15:42" },
@@ -65,6 +73,7 @@ const conversations = [
   },
   {
     name: "Diego Costa",
+    avatar: "https://randomuser.me/api/portraits/men/67.jpg",
     messages: [
       { from: "client" as const, text: "A qualidade em 4K me surpreendeu mesmo. A interface é organizada e fácil de navegar.", time: "20:00" },
       { from: "atendimento" as const, text: "Muito obrigado pelo feedback!", time: "20:02" },
@@ -72,6 +81,7 @@ const conversations = [
   },
   {
     name: "André Luiz",
+    avatar: "https://randomuser.me/api/portraits/men/78.jpg",
     messages: [
       { from: "client" as const, text: "Já utilizei outros serviços antes e esse me chamou atenção pela estabilidade e rapidez no carregamento.", time: "18:25" },
       { from: "atendimento" as const, text: "Que bom saber que superamos suas expectativas!", time: "18:27" },
@@ -79,6 +89,7 @@ const conversations = [
   },
   {
     name: "Patrícia Fernandes",
+    avatar: "https://randomuser.me/api/portraits/women/52.jpg",
     messages: [
       { from: "client" as const, text: "Tem bastante variedade de filmes e séries. O aplicativo é intuitivo e até agora não tive travamentos.", time: "13:10" },
       { from: "atendimento" as const, text: "Agradecemos demais pelo retorno!", time: "13:12" },
@@ -86,6 +97,7 @@ const conversations = [
   },
   {
     name: "Eduardo Silva",
+    avatar: "https://randomuser.me/api/portraits/men/36.jpg",
     messages: [
       { from: "client" as const, text: "Usei em horário de pico para testar e continuou estável. A qualidade de imagem ficou excelente.", time: "21:50" },
       { from: "atendimento" as const, text: "Obrigado por compartilhar sua experiência!", time: "21:52" },
@@ -93,6 +105,7 @@ const conversations = [
   },
   {
     name: "Gabriela Nunes",
+    avatar: "https://randomuser.me/api/portraits/women/17.jpg",
     messages: [
       { from: "client" as const, text: "Estou satisfeita com a experiência até agora. Futebol e canais ao vivo estão funcionando bem.", time: "17:35" },
       { from: "atendimento" as const, text: "Ficamos felizes com seu feedback!", time: "17:37" },
@@ -100,6 +113,7 @@ const conversations = [
   },
   {
     name: "Thiago Ramos",
+    avatar: "https://randomuser.me/api/portraits/men/41.jpg",
     messages: [
       { from: "client" as const, text: "O carregamento é rápido e a imagem bem limpa. Estou bem satisfeito com o serviço.", time: "12:20" },
       { from: "atendimento" as const, text: "Muito obrigado pela confiança!", time: "12:22" },
@@ -107,6 +121,7 @@ const conversations = [
   },
   {
     name: "Larissa Mendes",
+    avatar: "https://randomuser.me/api/portraits/women/71.jpg",
     messages: [
       { from: "client" as const, text: "Aplicativo bem otimizado, fácil de usar e não fica travando. Recomendo testar.", time: "19:00" },
       { from: "atendimento" as const, text: "Agradecemos pela recomendação 💚", time: "19:02" },
@@ -182,6 +197,7 @@ const AvaliacoesSection = () => {
             >
               <WhatsAppChat
                 name={conversations[activeIndex].name}
+                avatar={conversations[activeIndex].avatar}
                 messages={conversations[activeIndex].messages}
               />
             </motion.div>
