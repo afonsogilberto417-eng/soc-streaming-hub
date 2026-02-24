@@ -37,10 +37,15 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
 
   const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndexes((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) next.delete(index);
+      else next.add(index);
+      return next;
+    });
   };
 
   return (
@@ -61,7 +66,7 @@ const FAQSection = () => {
 
         <div className="rounded-2xl bg-[#0a1f14] border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden">
           {faqs.map((faq, index) => {
-            const isOpen = openIndex === index;
+            const isOpen = openIndexes.has(index);
             return (
               <div
                 key={index}
