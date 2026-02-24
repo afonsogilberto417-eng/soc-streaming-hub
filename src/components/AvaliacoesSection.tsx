@@ -33,7 +33,7 @@ interface Conversation {
 
 const conversations: Conversation[] = [
   {
-    name: "Carlos Henrique",
+    name: "+55 11 9●●●●-●●48",
     avatar: avatarCarlos,
     messages: [
       { from: "client", text: "Olá, tudo bem? Vi o anúncio de vocês e fiquei interessado. Eu uso bastante no Android aqui em casa. Queria saber se realmente roda liso ou se costuma travar.", time: "19:42" },
@@ -43,7 +43,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Lucas Almeida",
+    name: "+55 21 9●●●●-●●15",
     avatar: avatarLucas,
     messages: [
       { from: "client", text: "Boa noite. Eu gosto de assistir futebol ao vivo e já tive problema com outros serviços. Queria saber se o de vocês aguenta bem.", time: "21:10" },
@@ -54,7 +54,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Mariana Souza",
+    name: "+55 31 9●●●●-●●72",
     avatar: avatarMariana,
     messages: [
       { from: "client", text: "Passei aqui só para agradecer. Peguei o teste de 7 dias e gostei bastante da estabilidade. Navegação simples, canais funcionando e filmes atualizados.", time: "14:20" },
@@ -62,7 +62,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Rafael Lima",
+    name: "+55 41 9●●●●-●●36",
     avatar: avatarRafael,
     messages: [
       { from: "client", text: "Estou usando no celular e na TV Box já tem alguns dias. O aplicativo é leve, abre rápido e até agora não tive nenhum problema.", time: "10:45" },
@@ -73,7 +73,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Juliana Martins",
+    name: "+55 85 9●●●●-●●91",
     avatar: avatarJuliana,
     messages: [
       { from: "client", text: "Mesmo com minha internet não sendo das melhores, a transmissão ficou estável. Testei no notebook e rodou super bem. Gostei da qualidade.", time: "16:30" },
@@ -81,7 +81,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Fernanda Rocha",
+    name: "+55 71 9●●●●-●●54",
     avatar: avatarFernanda,
     messages: [
       { from: "client", text: "Achei muito fácil de instalar. Não tenho muita prática com aplicativo, mas foi bem simples. A qualidade em HD e Full HD faz diferença.", time: "11:05" },
@@ -89,7 +89,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Bruno Oliveira",
+    name: "+55 48 9●●●●-●●27",
     avatar: avatarBruno,
     messages: [
       { from: "client", text: "Gostei bastante da rapidez do sistema. A ativação foi praticamente imediata e o suporte respondeu rápido.", time: "09:15" },
@@ -97,7 +97,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Camila Santos",
+    name: "+55 62 9●●●●-●●83",
     avatar: avatarCamila,
     messages: [
       { from: "client", text: "Testei aquelas 4 horas antes de fechar e deu para avaliar bem a qualidade. Funcionou certinho e me deu segurança para continuar.", time: "15:40" },
@@ -105,7 +105,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Diego Costa",
+    name: "+55 27 9●●●●-●●60",
     avatar: avatarDiego,
     messages: [
       { from: "client", text: "A qualidade em 4K me surpreendeu mesmo. Olha como ficou na minha TV! 👇", time: "20:00" },
@@ -116,7 +116,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "André Luiz",
+    name: "+55 51 9●●●●-●●45",
     avatar: avatarAndre,
     messages: [
       { from: "client", text: "Já utilizei outros serviços antes e esse me chamou atenção pela estabilidade e rapidez no carregamento.", time: "18:25" },
@@ -124,7 +124,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Patrícia Fernandes",
+    name: "+55 92 9●●●●-●●18",
     avatar: avatarPatricia,
     messages: [
       { from: "client", text: "Tem bastante variedade de filmes e séries. O aplicativo é intuitivo e até agora não tive travamentos.", time: "13:10" },
@@ -132,7 +132,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Eduardo Silva",
+    name: "+55 19 9●●●●-●●37",
     avatar: avatarEduardo,
     messages: [
       { from: "client", text: "Usei em horário de pico para testar e continuou estável. A qualidade de imagem ficou excelente.", time: "21:50" },
@@ -140,7 +140,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Gabriela Nunes",
+    name: "+55 61 9●●●●-●●02",
     avatar: avatarGabriela,
     messages: [
       { from: "client", text: "Estou satisfeita com a experiência até agora. Futebol e canais ao vivo estão funcionando bem.", time: "17:35" },
@@ -148,7 +148,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Thiago Ramos",
+    name: "+55 81 9●●●●-●●69",
     avatar: avatarThiago,
     messages: [
       { from: "client", text: "O carregamento é rápido e a imagem bem limpa. Estou bem satisfeito com o serviço.", time: "12:20" },
@@ -156,7 +156,7 @@ const conversations: Conversation[] = [
     ],
   },
   {
-    name: "Larissa Mendes",
+    name: "+55 47 9●●●●-●●51",
     avatar: avatarLarissa,
     messages: [
       { from: "client", text: "Aplicativo bem otimizado, fácil de usar e não fica travando. Recomendo testar.", time: "19:00" },
@@ -195,7 +195,7 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
         <img src={conv.avatar} alt={conv.name} className="w-full h-full object-cover" />
       </div>
       <div className="flex-1 min-w-0">
-        <p className="text-white text-[15px] font-medium truncate">{conv.name}</p>
+        <p className="text-white text-[15px] font-medium truncate line-through decoration-[#ff4444]/70 decoration-2">{conv.name}</p>
         <p className="text-[#a8d8cc] text-[12px]">online</p>
       </div>
       <div className="flex items-center gap-5 text-white">
@@ -228,7 +228,7 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
               <div className="absolute -right-2 top-0 w-0 h-0 border-t-[8px] border-t-[#dcf8c6] border-l-[8px] border-l-transparent" />
             )}
             {msg.from === "client" && (
-              <p className="text-[#35cd96] text-[12px] font-semibold mb-0.5">~ {conv.name}</p>
+              <p className="text-[#35cd96] text-[12px] font-semibold mb-0.5"><span className="line-through decoration-[#ff4444]/70 decoration-1">~ {conv.name}</span></p>
             )}
             {msg.from === "atendimento" && (
               <p className="text-[#6cb4ee] text-[12px] font-semibold mb-0.5">SocialFlix Suporte</p>
