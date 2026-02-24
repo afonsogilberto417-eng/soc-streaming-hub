@@ -219,13 +219,13 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
       {conv.messages.map((msg, i) => (
         <div key={i} className={`flex ${msg.from === "atendimento" ? "justify-end" : "justify-start"}`}>
           <div className={`max-w-[82%] rounded-lg px-3 py-2 text-[13px] leading-[1.45] relative shadow-sm ${
-            msg.from === "client" ? "bg-white text-[#303030] rounded-tl-none" : "bg-[#dcf8c6] text-[#303030] rounded-tr-none"
+            msg.from === "client" ? "bg-[#1a3a2a] text-[#e0e0e0] rounded-tl-none" : "bg-[#005c4b] text-[#e0e0e0] rounded-tr-none"
           }`}>
             {msg.from === "client" && i === 0 && (
-              <div className="absolute -left-2 top-0 w-0 h-0 border-t-[8px] border-t-white border-r-[8px] border-r-transparent" />
+              <div className="absolute -left-2 top-0 w-0 h-0 border-t-[8px] border-t-[#1a3a2a] border-r-[8px] border-r-transparent" />
             )}
             {msg.from === "atendimento" && (
-              <div className="absolute -right-2 top-0 w-0 h-0 border-t-[8px] border-t-[#dcf8c6] border-l-[8px] border-l-transparent" />
+              <div className="absolute -right-2 top-0 w-0 h-0 border-t-[8px] border-t-[#005c4b] border-l-[8px] border-l-transparent" />
             )}
             {msg.from === "client" && (
               <p className="text-[#35cd96] text-[12px] font-semibold mb-0.5"><span className="line-through decoration-[#ff4444]/70 decoration-1">~ {conv.name}</span></p>
@@ -235,7 +235,7 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
             )}
             {msg.image && <img src={msg.image} alt="Foto enviada" className="rounded-md mb-1 w-full" />}
             {msg.text && <p className="whitespace-pre-line">{msg.text}</p>}
-            <span className="text-[10px] text-[#999] float-right mt-1 ml-2 flex items-center gap-0.5">
+            <span className="text-[10px] text-[#8696a0] float-right mt-1 ml-2 flex items-center gap-0.5">
               {msg.time}
               {msg.from === "atendimento" && (
                 <svg width="16" height="11" viewBox="0 0 16 11" fill="#4fc3f7">
