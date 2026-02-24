@@ -70,7 +70,7 @@ const FAQSection = () => {
             return (
               <div
                 key={index}
-                className={`border-b border-white/10 last:border-b-0 transition-colors duration-300 ${isOpen ? "bg-[#0a1f14]" : "bg-[#1a1a2e]"}`}
+                className={`border-b border-white/10 last:border-b-0 transition-colors duration-300 ${isOpen ? "bg-[#0a1f14]" : "bg-[#111111]"}`}
               >
                 <button
                   onClick={() => toggle(index)}
