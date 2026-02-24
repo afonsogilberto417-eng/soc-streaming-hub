@@ -4,6 +4,7 @@ interface Message {
   from: "client" | "atendimento";
   text: string;
   time: string;
+  image?: string;
 }
 
 interface ChatProps {
@@ -98,7 +99,10 @@ const WhatsAppChat = ({ name, avatar, messages }: ChatProps) => {
                 {msg.from === "atendimento" && (
                   <p className="text-[#6cb4ee] text-[12px] font-semibold mb-0.5">SocialFlix Suporte</p>
                 )}
-                <p className="whitespace-pre-line">{msg.text}</p>
+                {msg.image && (
+                  <img src={msg.image} alt="Foto enviada" className="rounded-md mb-1 w-full" />
+                )}
+                {msg.text && <p className="whitespace-pre-line">{msg.text}</p>}
                 <span className="text-[10px] text-[#999] float-right mt-1 ml-2 flex items-center gap-0.5">
                   {msg.time}
                   {msg.from === "atendimento" && (
