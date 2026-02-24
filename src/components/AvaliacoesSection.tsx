@@ -277,11 +277,21 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
 
 const AvaliacoesSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => { preloadImages(); }, []);
 
-  const goNext = () => setActiveIndex((prev) => Math.min(conversations.length - 1, prev + 1));
-  const goPrev = () => setActiveIndex((prev) => Math.max(0, prev - 1));
+  // Autoplay carousel
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % conversations.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const goNext = () => setActiveIndex((prev) => (prev + 1) % conversations.length);
+  const goPrev = () => setActiveIndex((prev) => (prev - 1 + conversations.length) % conversations.length);
 
   return (
     <section className="relative bg-gradient-section py-16 md:py-24">
@@ -303,12 +313,15 @@ const AvaliacoesSection = () => {
         </p>
 
         {/* Phone + navigation buttons */}
-        <div className="relative flex items-center justify-center gap-3 md:gap-6">
+        <div
+          className="relative flex items-center justify-center gap-3 md:gap-6"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Left button */}
           <button
             onClick={goPrev}
-            disabled={activeIndex === 0}
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed flex-shrink-0"
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all flex-shrink-0"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
@@ -332,7 +345,7 @@ const AvaliacoesSection = () => {
               </div>
 
               {/* Dynamic content area */}
-              <div className="relative" style={{ height: 440 }}>
+              <div className="relative" style={{ height: 520 }}>
                 {conversations.map((conv, i) => (
                   <ChatCard key={i} conv={conv} isActive={i === activeIndex} />
                 ))}
@@ -361,8 +374,7 @@ const AvaliacoesSection = () => {
           {/* Right button */}
           <button
             onClick={goNext}
-            disabled={activeIndex === conversations.length - 1}
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed flex-shrink-0"
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all flex-shrink-0"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
