@@ -64,26 +64,25 @@ const FAQSection = () => {
           Tire suas dúvidas antes de começar
         </p>
 
-        <div className="rounded-2xl bg-[#0a1f14] border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.3)] overflow-hidden">
+        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
           {faqs.map((faq, index) => {
             const isOpen = openIndexes.has(index);
             return (
               <div
                 key={index}
-                className={`border-b border-white/5 last:border-b-0 ${isOpen ? "bg-white/[0.02]" : ""}`}
+                className={`border-b border-white/10 last:border-b-0 transition-colors duration-300 ${isOpen ? "bg-[#0a1f14]" : "bg-[#1a1a2e]"}`}
               >
                 <button
                   onClick={() => toggle(index)}
-                  className="w-full flex items-center justify-between px-5 md:px-7 py-5 text-left gap-4 hover:bg-white/[0.03] transition-colors duration-200"
+                  className="w-full flex items-center justify-between px-5 md:px-7 py-5 text-left gap-4 hover:bg-white/[0.05] transition-colors duration-200"
                 >
                   <span className="text-[15px] md:text-base font-medium text-foreground leading-snug">
                     {faq.question}
                   </span>
                   <span
-                    className="text-primary text-xl font-light flex-shrink-0 w-7 h-7 rounded-full border border-primary/30 flex items-center justify-center transition-transform duration-300"
-                    style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+                    className="text-primary text-xl font-bold flex-shrink-0 w-7 h-7 rounded-full border border-primary/30 flex items-center justify-center transition-all duration-300"
                   >
-                    +
+                    {isOpen ? "−" : "+"}
                   </span>
                 </button>
 
