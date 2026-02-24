@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import WhatsAppChat from "./WhatsAppChat";
 
@@ -149,25 +149,51 @@ const conversations = [
   },
 ];
 
+// Preload all avatar images on mount
+const preloadImages = () => {
+  conversations.forEach((conv) => {
+    if (conv.avatar) {
+      const img = new Image();
+      img.src = conv.avatar;
+    }
+    conv.messages.forEach((msg) => {
+      if ('image' in msg && (msg as any).image) {
+        const img = new Image();
+        img.src = (msg as any).image;
+      }
+    });
+  });
+};
+
 const AvaliacoesSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
+    preloadImages();
+  }, []);
+
+  useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionHeight = sectionRef.current.offsetHeight;
-      const viewportHeight = window.innerHeight;
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (!sectionRef.current) { ticking = false; return; }
+        const rect = sectionRef.current.getBoundingClientRect();
+        const sectionHeight = sectionRef.current.offsetHeight;
+        const viewportHeight = window.innerHeight;
 
-      const scrolled = (viewportHeight - rect.top) / (sectionHeight + viewportHeight);
-      const clamped = Math.max(0, Math.min(1, scrolled));
+        const scrolled = (viewportHeight - rect.top) / (sectionHeight + viewportHeight);
+        const clamped = Math.max(0, Math.min(1, scrolled));
 
-      const index = Math.min(
-        conversations.length - 1,
-        Math.floor(clamped * conversations.length)
-      );
-      setActiveIndex(index);
+        const index = Math.min(
+          conversations.length - 1,
+          Math.floor(clamped * conversations.length)
+        );
+        setActiveIndex(index);
+        ticking = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -175,7 +201,7 @@ const AvaliacoesSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const sectionHeightVh = conversations.length * 40;
+  const sectionHeightVh = conversations.length * 35;
 
   return (
     <section
@@ -201,22 +227,27 @@ const AvaliacoesSection = () => {
           {activeIndex + 1} / {conversations.length}
         </p>
 
+        {/* Render all chats, only show the active one - no animation delay */}
         <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              transition={{ duration: 0.3 }}
+          {conversations.map((conv, i) => (
+            <div
+              key={i}
+              className="transition-opacity duration-200"
+              style={{
+                opacity: i === activeIndex ? 1 : 0,
+                pointerEvents: i === activeIndex ? "auto" : "none",
+                position: i === 0 ? "relative" : "absolute",
+                top: 0,
+                left: 0,
+              }}
             >
               <WhatsAppChat
-                name={conversations[activeIndex].name}
-                avatar={conversations[activeIndex].avatar}
-                messages={conversations[activeIndex].messages}
+                name={conv.name}
+                avatar={conv.avatar}
+                messages={conv.messages}
               />
-            </motion.div>
-          </AnimatePresence>
+            </div>
+          ))}
         </div>
 
         <motion.p
