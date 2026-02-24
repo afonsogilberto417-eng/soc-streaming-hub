@@ -38,8 +38,10 @@ const conversations: Conversation[] = [
     messages: [
       { from: "client", text: "Olá, tudo bem? Vi o anúncio de vocês e fiquei interessado. Eu uso bastante no Android aqui em casa. Queria saber se realmente roda liso ou se costuma travar.", time: "19:42" },
       { from: "atendimento", text: "Oi, tudo bem! Pode ficar tranquilo, nosso sistema é otimizado para rodar estável no Android.", time: "19:44" },
+      { from: "client", text: "Beleza! Vou testar agora então. Já volto com o feedback.", time: "19:45" },
       { from: "client", text: "Testei aqui em casa e rodou liso demais. A imagem em Full HD ficou excelente, não tive nenhum travamento e a ativação foi bem rápida.", time: "20:15" },
-      { from: "atendimento", text: "Ficamos muito felizes com seu feedback! Obrigado pela confiança 🙌", time: "20:16" },
+      { from: "client", text: "Minha esposa adorou também, já estamos assistindo série juntos 😂", time: "20:16" },
+      { from: "atendimento", text: "Ficamos muito felizes com seu feedback! Obrigado pela confiança 🙌", time: "20:17" },
     ],
   },
   {
@@ -57,8 +59,10 @@ const conversations: Conversation[] = [
     name: "+55 31 9●●●●-●●72",
     avatar: avatarMariana,
     messages: [
-      { from: "client", text: "Passei aqui só para agradecer. Peguei o teste de 7 dias e gostei bastante da estabilidade. Navegação simples, canais funcionando e filmes atualizados.", time: "14:20" },
-      { from: "atendimento", text: "Agradecemos demais pelo retorno 💚", time: "14:22" },
+      { from: "client", text: "Passei aqui só para agradecer. Peguei o teste de 7 dias e gostei bastante da estabilidade.", time: "14:20" },
+      { from: "client", text: "Navegação simples, canais funcionando e filmes atualizados. Tá de parabéns!", time: "14:21" },
+      { from: "client", text: "Já indiquei pra dois amigos meus aqui do trabalho 👍", time: "14:22" },
+      { from: "atendimento", text: "Agradecemos demais pelo retorno! E obrigado pelas indicações 💚", time: "14:23" },
     ],
   },
   {
@@ -76,32 +80,40 @@ const conversations: Conversation[] = [
     name: "+55 85 9●●●●-●●91",
     avatar: avatarJuliana,
     messages: [
-      { from: "client", text: "Mesmo com minha internet não sendo das melhores, a transmissão ficou estável. Testei no notebook e rodou super bem. Gostei da qualidade.", time: "16:30" },
-      { from: "atendimento", text: "Muito obrigado pelo feedback 🙌", time: "16:32" },
+      { from: "client", text: "Boa tarde! Queria dar um feedback. Minha internet é de 50 mega só, achei que ia travar.", time: "16:28" },
+      { from: "client", text: "Mas mesmo assim a transmissão ficou estável. Testei no notebook e rodou super bem. Gostei da qualidade.", time: "16:30" },
+      { from: "client", text: "Até no celular pelo 4G funcionou sem problema nenhum!", time: "16:31" },
+      { from: "atendimento", text: "Muito obrigado pelo feedback! Nosso sistema é otimizado pra funcionar bem mesmo em conexões mais simples 🙌", time: "16:32" },
     ],
   },
   {
     name: "+55 71 9●●●●-●●54",
     avatar: avatarFernanda,
     messages: [
-      { from: "client", text: "Achei muito fácil de instalar. Não tenho muita prática com aplicativo, mas foi bem simples. A qualidade em HD e Full HD faz diferença.", time: "11:05" },
-      { from: "atendimento", text: "Obrigado por compartilhar sua experiência 💚", time: "11:07" },
+      { from: "client", text: "Oi! Achei muito fácil de instalar. Não tenho muita prática com aplicativo, mas foi bem simples.", time: "11:05" },
+      { from: "client", text: "A qualidade em HD e Full HD faz muita diferença. Parece cinema em casa! 🎬", time: "11:06" },
+      { from: "client", text: "Meus filhos ficaram loucos com a quantidade de desenho disponível kkkk", time: "11:07" },
+      { from: "atendimento", text: "Obrigado por compartilhar sua experiência! Ficamos felizes que toda a família está curtindo 💚", time: "11:08" },
     ],
   },
   {
     name: "+55 48 9●●●●-●●27",
     avatar: avatarBruno,
     messages: [
-      { from: "client", text: "Gostei bastante da rapidez do sistema. A ativação foi praticamente imediata e o suporte respondeu rápido.", time: "09:15" },
-      { from: "atendimento", text: "Agradecemos muito pela confiança!", time: "09:17" },
+      { from: "client", text: "Bom dia! Acabei de ativar e já queria elogiar.", time: "09:15" },
+      { from: "client", text: "Gostei bastante da rapidez do sistema. A ativação foi praticamente imediata e o suporte respondeu rápido.", time: "09:16" },
+      { from: "client", text: "Já tô maratonando aqui kkk nem saí da cama ainda 😅", time: "09:20" },
+      { from: "atendimento", text: "Agradecemos muito pela confiança! Bom maratona! 🍿", time: "09:21" },
     ],
   },
   {
     name: "+55 62 9●●●●-●●83",
     avatar: avatarCamila,
     messages: [
-      { from: "client", text: "Testei aquelas 4 horas antes de fechar e deu para avaliar bem a qualidade. Funcionou certinho e me deu segurança para continuar.", time: "15:40" },
-      { from: "atendimento", text: "Ficamos felizes que tenha gostado!", time: "15:42" },
+      { from: "client", text: "Testei aquelas 4 horas antes de fechar e deu para avaliar bem a qualidade.", time: "15:40" },
+      { from: "client", text: "Funcionou certinho e me deu segurança para continuar. Não travou nenhuma vez!", time: "15:41" },
+      { from: "client", text: "Quero fechar o plano anual. Como faço? 💪", time: "15:42" },
+      { from: "atendimento", text: "Ficamos felizes que tenha gostado! Vou te enviar os detalhes do plano anual agora 🎉", time: "15:43" },
     ],
   },
   {
@@ -119,48 +131,60 @@ const conversations: Conversation[] = [
     name: "+55 51 9●●●●-●●45",
     avatar: avatarAndre,
     messages: [
-      { from: "client", text: "Já utilizei outros serviços antes e esse me chamou atenção pela estabilidade e rapidez no carregamento.", time: "18:25" },
-      { from: "atendimento", text: "Que bom saber que superamos suas expectativas!", time: "18:27" },
+      { from: "client", text: "Fala pessoal! Já utilizei outros serviços antes e sempre tinha problema.", time: "18:25" },
+      { from: "client", text: "Esse me chamou atenção pela estabilidade e rapidez no carregamento. Diferença absurda!", time: "18:26" },
+      { from: "client", text: "Finalmente achei um serviço que presta de verdade 👏", time: "18:27" },
+      { from: "atendimento", text: "Que bom saber que superamos suas expectativas! Obrigado pela confiança! 🙌", time: "18:28" },
     ],
   },
   {
     name: "+55 92 9●●●●-●●18",
     avatar: avatarPatricia,
     messages: [
-      { from: "client", text: "Tem bastante variedade de filmes e séries. O aplicativo é intuitivo e até agora não tive travamentos.", time: "13:10" },
-      { from: "atendimento", text: "Agradecemos demais pelo retorno!", time: "13:12" },
+      { from: "client", text: "Oi! Queria falar que tem bastante variedade de filmes e séries.", time: "13:10" },
+      { from: "client", text: "O aplicativo é intuitivo e até agora não tive travamentos. Muito bom!", time: "13:11" },
+      { from: "client", text: "Minha mãe de 65 anos tá usando sozinha e conseguiu mexer tranquilo 😄", time: "13:12" },
+      { from: "atendimento", text: "Agradecemos demais pelo retorno! Que bom que é fácil pra toda a família! 💚", time: "13:13" },
     ],
   },
   {
     name: "+55 19 9●●●●-●●37",
     avatar: avatarEduardo,
     messages: [
-      { from: "client", text: "Usei em horário de pico para testar e continuou estável. A qualidade de imagem ficou excelente.", time: "21:50" },
-      { from: "atendimento", text: "Obrigado por compartilhar sua experiência!", time: "21:52" },
+      { from: "client", text: "Fiz questão de testar em horário de pico pra ver se aguentava.", time: "21:50" },
+      { from: "client", text: "E continuou estável! A qualidade de imagem ficou excelente, sem pixelar nada.", time: "21:51" },
+      { from: "client", text: "Assisti o jogo inteiro sem um travamento. Nota 10! ⚽", time: "21:55" },
+      { from: "atendimento", text: "Obrigado por compartilhar sua experiência! Nossos servidores são preparados pra isso! 🏆", time: "21:56" },
     ],
   },
   {
     name: "+55 61 9●●●●-●●02",
     avatar: avatarGabriela,
     messages: [
-      { from: "client", text: "Estou satisfeita com a experiência até agora. Futebol e canais ao vivo estão funcionando bem.", time: "17:35" },
-      { from: "atendimento", text: "Ficamos felizes com seu feedback!", time: "17:37" },
+      { from: "client", text: "Boa tarde! Estou satisfeita com a experiência até agora.", time: "17:35" },
+      { from: "client", text: "Futebol e canais ao vivo estão funcionando super bem. Sem delay!", time: "17:36" },
+      { from: "client", text: "Meu marido já cancelou a outra assinatura que a gente tinha 😂", time: "17:37" },
+      { from: "atendimento", text: "Ficamos felizes com seu feedback! Bem-vindos à família SocialFlix! 🎉", time: "17:38" },
     ],
   },
   {
     name: "+55 81 9●●●●-●●69",
     avatar: avatarThiago,
     messages: [
-      { from: "client", text: "O carregamento é rápido e a imagem bem limpa. Estou bem satisfeito com o serviço.", time: "12:20" },
-      { from: "atendimento", text: "Muito obrigado pela confiança!", time: "12:22" },
+      { from: "client", text: "Rapaz, o carregamento é rápido demais. Abre na hora!", time: "12:20" },
+      { from: "client", text: "A imagem bem limpa, sem aquele pixelado que outros serviços têm.", time: "12:21" },
+      { from: "client", text: "Estou bem satisfeito com o serviço. Podem contar comigo como cliente fiel! 🤝", time: "12:22" },
+      { from: "atendimento", text: "Muito obrigado pela confiança! É isso aí! 💪", time: "12:23" },
     ],
   },
   {
     name: "+55 47 9●●●●-●●51",
     avatar: avatarLarissa,
     messages: [
-      { from: "client", text: "Aplicativo bem otimizado, fácil de usar e não fica travando. Recomendo testar.", time: "19:00" },
-      { from: "atendimento", text: "Agradecemos pela recomendação 💚", time: "19:02" },
+      { from: "client", text: "Olá! Vim recomendar. Aplicativo bem otimizado, fácil de usar e não fica travando.", time: "19:00" },
+      { from: "client", text: "Já testei em 3 aparelhos diferentes e funcionou perfeito em todos!", time: "19:01" },
+      { from: "client", text: "Recomendo demais pra quem tá em dúvida. Vale muito a pena! 🔥", time: "19:02" },
+      { from: "atendimento", text: "Agradecemos pela recomendação! Feedback assim nos motiva muito 💚", time: "19:03" },
     ],
   },
 ];
@@ -252,42 +276,16 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
 );
 
 const AvaliacoesSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => { preloadImages(); }, []);
 
-  useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        if (!sectionRef.current) { ticking = false; return; }
-        const rect = sectionRef.current.getBoundingClientRect();
-        const sectionHeight = sectionRef.current.offsetHeight;
-        const viewportHeight = window.innerHeight;
-        const scrolled = (viewportHeight - rect.top) / (sectionHeight + viewportHeight);
-        const clamped = Math.max(0, Math.min(1, scrolled));
-        const index = Math.min(conversations.length - 1, Math.floor(clamped * conversations.length));
-        setActiveIndex(index);
-        ticking = false;
-      });
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const sectionHeightVh = conversations.length * 35;
+  const goNext = () => setActiveIndex((prev) => Math.min(conversations.length - 1, prev + 1));
+  const goPrev = () => setActiveIndex((prev) => Math.max(0, prev - 1));
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-gradient-section"
-      style={{ height: `${sectionHeightVh}vh` }}
-    >
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
+    <section className="relative bg-gradient-section py-16 md:py-24">
+      <div className="flex flex-col items-center justify-center px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -304,58 +302,71 @@ const AvaliacoesSection = () => {
           {activeIndex + 1} / {conversations.length}
         </p>
 
-        {/* Static phone frame - content scrolls inside */}
-        <div className="relative mx-auto" style={{ width: 340 }}>
-          <div className="rounded-[3rem] border-[4px] border-[#1a1a1a] bg-[#000] overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)]">
-            {/* Notch */}
-            <div className="bg-[#000] flex justify-center pt-2 pb-0">
-              <div className="w-28 h-6 bg-[#1a1a1a] rounded-b-2xl" />
-            </div>
+        {/* Phone + navigation buttons */}
+        <div className="relative flex items-center justify-center gap-3 md:gap-6">
+          {/* Left button */}
+          <button
+            onClick={goPrev}
+            disabled={activeIndex === 0}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed flex-shrink-0"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
 
-            {/* Status bar */}
-            <div className="bg-[#075e54] flex items-center justify-between px-5 pt-1 pb-1">
-              <span className="text-white text-[12px] font-semibold">12:30</span>
-              <div className="flex items-center gap-1.5">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M2 22h20V2z" opacity="0.3"/><path d="M2 22h20V2zm18-2H4V4.8L20 20z"/></svg>
-                <svg width="18" height="12" viewBox="0 0 28 14" fill="white"><rect x="0" y="1" width="22" height="12" rx="2.5" ry="2.5" stroke="white" strokeWidth="1.2" fill="none"/><rect x="2" y="3" width="16" height="8" rx="1" fill="white"/><path d="M24 5v4a2 2 0 000-4z"/></svg>
+          {/* Phone frame */}
+          <div className="relative mx-auto" style={{ width: 340 }}>
+            <div className="rounded-[3rem] border-[4px] border-[#1a1a1a] bg-[#000] overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)]">
+              {/* Notch */}
+              <div className="bg-[#000] flex justify-center pt-2 pb-0">
+                <div className="w-28 h-6 bg-[#1a1a1a] rounded-b-2xl" />
               </div>
-            </div>
 
-            {/* Dynamic content area - header + messages swap here */}
-            <div className="relative" style={{ height: 440 }}>
-              {conversations.map((conv, i) => (
-                <ChatCard key={i} conv={conv} isActive={i === activeIndex} />
-              ))}
-            </div>
-
-            {/* Static input bar */}
-            <div className="bg-[#f0f0f0] px-2.5 py-2 flex items-center gap-2">
-              <div className="flex-1 bg-white rounded-full px-4 py-2.5 text-[14px] text-[#999] flex items-center gap-3 shadow-sm">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2" strokeLinecap="round"/><circle cx="9" cy="10" r="1" fill="#919191" stroke="none"/><circle cx="15" cy="10" r="1" fill="#919191" stroke="none"/></svg>
-                <span className="flex-1">Mensagem</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" strokeLinecap="round"/></svg>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              {/* Status bar */}
+              <div className="bg-[#075e54] flex items-center justify-between px-5 pt-1 pb-1">
+                <span className="text-white text-[12px] font-semibold">12:30</span>
+                <div className="flex items-center gap-1.5">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M2 22h20V2z" opacity="0.3"/><path d="M2 22h20V2zm18-2H4V4.8L20 20z"/></svg>
+                  <svg width="18" height="12" viewBox="0 0 28 14" fill="white"><rect x="0" y="1" width="22" height="12" rx="2.5" ry="2.5" stroke="white" strokeWidth="1.2" fill="none"/><rect x="2" y="3" width="16" height="8" rx="1" fill="white"/><path d="M24 5v4a2 2 0 000-4z"/></svg>
+                </div>
               </div>
-              <div className="w-11 h-11 rounded-full bg-[#00a884] flex items-center justify-center flex-shrink-0 shadow-sm">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
-              </div>
-            </div>
 
-            {/* Home indicator */}
-            <div className="bg-[#f0f0f0] h-5 flex items-center justify-center pb-1">
-              <div className="w-28 h-1 bg-[#333] rounded-full" />
+              {/* Dynamic content area */}
+              <div className="relative" style={{ height: 440 }}>
+                {conversations.map((conv, i) => (
+                  <ChatCard key={i} conv={conv} isActive={i === activeIndex} />
+                ))}
+              </div>
+
+              {/* Static input bar */}
+              <div className="bg-[#f0f0f0] px-2.5 py-2 flex items-center gap-2">
+                <div className="flex-1 bg-white rounded-full px-4 py-2.5 text-[14px] text-[#999] flex items-center gap-3 shadow-sm">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2" strokeLinecap="round"/><circle cx="9" cy="10" r="1" fill="#919191" stroke="none"/><circle cx="15" cy="10" r="1" fill="#919191" stroke="none"/></svg>
+                  <span className="flex-1">Mensagem</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" strokeLinecap="round"/></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                </div>
+                <div className="w-11 h-11 rounded-full bg-[#00a884] flex items-center justify-center flex-shrink-0 shadow-sm">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+                </div>
+              </div>
+
+              {/* Home indicator */}
+              <div className="bg-[#f0f0f0] h-5 flex items-center justify-center pb-1">
+                <div className="w-28 h-1 bg-[#333] rounded-full" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <motion.p
-          className="text-muted-foreground text-xs mt-4 flex items-center gap-1"
-          animate={{ opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          ↓ Role para ver mais depoimentos
-        </motion.p>
+          {/* Right button */}
+          <button
+            onClick={goNext}
+            disabled={activeIndex === conversations.length - 1}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all disabled:opacity-20 disabled:cursor-not-allowed flex-shrink-0"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
       </div>
     </section>
   );
