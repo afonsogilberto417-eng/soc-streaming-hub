@@ -8,10 +8,11 @@ interface Message {
 
 interface ChatProps {
   name: string;
+  avatar?: string;
   messages: Message[];
 }
 
-const WhatsAppChat = ({ name, messages }: ChatProps) => {
+const WhatsAppChat = ({ name, avatar, messages }: ChatProps) => {
   return (
     <div className="relative mx-auto" style={{ width: 340 }}>
       {/* Phone Frame - iPhone style */}
@@ -35,9 +36,13 @@ const WhatsAppChat = ({ name, messages }: ChatProps) => {
         <div className="bg-[#075e54] px-3 py-2.5 flex items-center gap-2.5">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
           <div className="w-10 h-10 rounded-full bg-[#dfe5e7] flex items-center justify-center overflow-hidden">
-            <svg width="24" height="24" viewBox="0 0 212 212" fill="#ccc">
-              <path d="M106 0C47.5 0 0 47.5 0 106s47.5 106 106 106 106-47.5 106-106S164.5 0 106 0zm0 28c17.1 0 31 13.9 31 31s-13.9 31-31 31-31-13.9-31-31 13.9-31 31-31zm0 150c-26.5 0-49.9-13.5-63.6-34 .3-21.1 42.4-32.6 63.6-32.6s63.3 11.5 63.6 32.6C155.9 164.5 132.5 178 106 178z" fill="#ccc"/>
-            </svg>
+            {avatar ? (
+              <img src={avatar} alt={name} className="w-full h-full object-cover" />
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 212 212" fill="#ccc">
+                <path d="M106 0C47.5 0 0 47.5 0 106s47.5 106 106 106 106-47.5 106-106S164.5 0 106 0zm0 28c17.1 0 31 13.9 31 31s-13.9 31-31 31-31-13.9-31-31 13.9-31 31-31zm0 150c-26.5 0-49.9-13.5-63.6-34 .3-21.1 42.4-32.6 63.6-32.6s63.3 11.5 63.6 32.6C155.9 164.5 132.5 178 106 178z" fill="#ccc"/>
+              </svg>
+            )}
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-white text-[15px] font-medium truncate">{name}</p>
