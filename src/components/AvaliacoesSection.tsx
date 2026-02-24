@@ -189,7 +189,7 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
     }}
   >
     {/* WhatsApp Header with avatar */}
-    <div className="bg-[#1f2c34] px-3 py-2.5 flex items-center gap-2.5">
+    <div className="bg-[#075e54] px-3 py-2.5 flex items-center gap-2.5">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
       <div className="w-10 h-10 rounded-full bg-[#dfe5e7] flex items-center justify-center overflow-hidden flex-shrink-0">
         <img src={conv.avatar} alt={conv.name} className="w-full h-full object-cover" />
@@ -209,23 +209,23 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
     <div
       className="flex-1 px-3 py-4 space-y-2 overflow-y-auto"
       style={{
-        background: "#0b2b1f",
-        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3Cpattern id='bg' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M30 5c1.5 0 2.5 1 2.5 2.5S31.5 10 30 10s-2.5-1-2.5-2.5S28.5 5 30 5z' fill='%2300ff88' opacity='0.06'/%3E%3Cpath d='M10 25c1 0 2 .8 2 2s-1 2-2 2-2-.8-2-2 1-2 2-2z' fill='%2300ff88' opacity='0.04'/%3E%3Cpath d='M50 35c1.2 0 2 1 2 2s-.8 2-2 2-2-1-2-2 .8-2 2-2z' fill='%2300ff88' opacity='0.04'/%3E%3Cpath d='M25 45l3-2 3 2-1-3.5 3-2h-3.5L28.5 36l-1 3.5H24l3 2z' fill='%2300ff88' opacity='0.03'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='400' fill='%230b2b1f'/%3E%3Crect width='400' height='400' fill='url(%23bg)'/%3E%3C/svg%3E")`,
+        background: "#e5ddd5",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3Cpattern id='bg' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M30 5c1.5 0 2.5 1 2.5 2.5S31.5 10 30 10s-2.5-1-2.5-2.5S28.5 5 30 5z' fill='%23c9bfb0' opacity='0.15'/%3E%3Cpath d='M10 25c1 0 2 .8 2 2s-1 2-2 2-2-.8-2-2 1-2 2-2z' fill='%23c9bfb0' opacity='0.12'/%3E%3Cpath d='M50 35c1.2 0 2 1 2 2s-.8 2-2 2-2-1-2-2 .8-2 2-2z' fill='%23c9bfb0' opacity='0.12'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='400' fill='%23e5ddd5'/%3E%3Crect width='400' height='400' fill='url(%23bg)'/%3E%3C/svg%3E")`,
       }}
     >
       <div className="flex justify-center mb-2">
-        <span className="bg-[#182229] text-[#8696a0] text-[11px] px-3 py-1 rounded-lg shadow-sm font-medium">HOJE</span>
+        <span className="bg-[#d9f2fa] text-[#4a9cc2] text-[11px] px-3 py-1 rounded-lg shadow-sm font-medium">HOJE</span>
       </div>
       {conv.messages.map((msg, i) => (
         <div key={i} className={`flex ${msg.from === "atendimento" ? "justify-end" : "justify-start"}`}>
           <div className={`max-w-[82%] rounded-lg px-3 py-2 text-[13px] leading-[1.45] relative shadow-sm ${
-            msg.from === "client" ? "bg-[#1a3a2a] text-[#e0e0e0] rounded-tl-none" : "bg-[#005c4b] text-[#e0e0e0] rounded-tr-none"
+            msg.from === "client" ? "bg-white text-[#303030] rounded-tl-none" : "bg-[#dcf8c6] text-[#303030] rounded-tr-none"
           }`}>
             {msg.from === "client" && i === 0 && (
-              <div className="absolute -left-2 top-0 w-0 h-0 border-t-[8px] border-t-[#1a3a2a] border-r-[8px] border-r-transparent" />
+              <div className="absolute -left-2 top-0 w-0 h-0 border-t-[8px] border-t-white border-r-[8px] border-r-transparent" />
             )}
             {msg.from === "atendimento" && (
-              <div className="absolute -right-2 top-0 w-0 h-0 border-t-[8px] border-t-[#005c4b] border-l-[8px] border-l-transparent" />
+              <div className="absolute -right-2 top-0 w-0 h-0 border-t-[8px] border-t-[#dcf8c6] border-l-[8px] border-l-transparent" />
             )}
             {msg.from === "client" && (
               <p className="text-[#35cd96] text-[12px] font-semibold mb-0.5"><span className="line-through decoration-[#ff4444]/70 decoration-1">~ {conv.name}</span></p>
@@ -235,7 +235,7 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
             )}
             {msg.image && <img src={msg.image} alt="Foto enviada" className="rounded-md mb-1 w-full" />}
             {msg.text && <p className="whitespace-pre-line">{msg.text}</p>}
-            <span className="text-[10px] text-[#667781] float-right mt-1 ml-2 flex items-center gap-0.5">
+            <span className="text-[10px] text-[#999] float-right mt-1 ml-2 flex items-center gap-0.5">
               {msg.time}
               {msg.from === "atendimento" && (
                 <svg width="16" height="11" viewBox="0 0 16 11" fill="#4fc3f7">
@@ -313,7 +313,7 @@ const AvaliacoesSection = () => {
             </div>
 
             {/* Status bar */}
-            <div className="bg-[#1f2c34] flex items-center justify-between px-5 pt-1 pb-1">
+            <div className="bg-[#075e54] flex items-center justify-between px-5 pt-1 pb-1">
               <span className="text-white text-[12px] font-semibold">12:30</span>
               <div className="flex items-center gap-1.5">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
@@ -330,12 +330,12 @@ const AvaliacoesSection = () => {
             </div>
 
             {/* Static input bar */}
-            <div className="bg-[#1f2c34] px-2.5 py-2 flex items-center gap-2">
-              <div className="flex-1 bg-[#2a3942] rounded-full px-4 py-2.5 text-[14px] text-[#8696a0] flex items-center gap-3">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8696a0" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2" strokeLinecap="round"/><circle cx="9" cy="10" r="1" fill="#8696a0" stroke="none"/><circle cx="15" cy="10" r="1" fill="#8696a0" stroke="none"/></svg>
+            <div className="bg-[#f0f0f0] px-2.5 py-2 flex items-center gap-2">
+              <div className="flex-1 bg-white rounded-full px-4 py-2.5 text-[14px] text-[#999] flex items-center gap-3 shadow-sm">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2" strokeLinecap="round"/><circle cx="9" cy="10" r="1" fill="#919191" stroke="none"/><circle cx="15" cy="10" r="1" fill="#919191" stroke="none"/></svg>
                 <span className="flex-1">Mensagem</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8696a0" strokeWidth="1.8"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" strokeLinecap="round"/></svg>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8696a0" strokeWidth="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" strokeLinecap="round"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#919191" strokeWidth="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
               </div>
               <div className="w-11 h-11 rounded-full bg-[#00a884] flex items-center justify-center flex-shrink-0 shadow-sm">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
@@ -343,8 +343,8 @@ const AvaliacoesSection = () => {
             </div>
 
             {/* Home indicator */}
-            <div className="bg-[#1f2c34] h-5 flex items-center justify-center pb-1">
-              <div className="w-28 h-1 bg-[#555] rounded-full" />
+            <div className="bg-[#f0f0f0] h-5 flex items-center justify-center pb-1">
+              <div className="w-28 h-1 bg-[#333] rounded-full" />
             </div>
           </div>
         </div>
