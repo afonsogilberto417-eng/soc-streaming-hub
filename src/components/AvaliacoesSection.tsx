@@ -209,12 +209,12 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
     <div
       className="flex-1 px-3 py-4 space-y-2 overflow-y-auto"
       style={{
-        background: "#e5ddd5",
-        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3Cpattern id='bg' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M30 5c1.5 0 2.5 1 2.5 2.5S31.5 10 30 10s-2.5-1-2.5-2.5S28.5 5 30 5z' fill='%23c9bfb0' opacity='0.15'/%3E%3Cpath d='M10 25c1 0 2 .8 2 2s-1 2-2 2-2-.8-2-2 1-2 2-2z' fill='%23c9bfb0' opacity='0.12'/%3E%3Cpath d='M50 35c1.2 0 2 1 2 2s-.8 2-2 2-2-1-2-2 .8-2 2-2z' fill='%23c9bfb0' opacity='0.12'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='400' fill='%23e5ddd5'/%3E%3Crect width='400' height='400' fill='url(%23bg)'/%3E%3C/svg%3E")`,
+        background: "#0b2618",
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3Cpattern id='bg' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M30 5c1.5 0 2.5 1 2.5 2.5S31.5 10 30 10s-2.5-1-2.5-2.5S28.5 5 30 5z' fill='%231a4a30' opacity='0.3'/%3E%3Cpath d='M10 25c1 0 2 .8 2 2s-1 2-2 2-2-.8-2-2 1-2 2-2z' fill='%231a4a30' opacity='0.2'/%3E%3Cpath d='M50 35c1.2 0 2 1 2 2s-.8 2-2 2-2-1-2-2 .8-2 2-2z' fill='%231a4a30' opacity='0.2'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='400' fill='%230b2618'/%3E%3Crect width='400' height='400' fill='url(%23bg)'/%3E%3C/svg%3E")`,
       }}
     >
       <div className="flex justify-center mb-2">
-        <span className="bg-[#d9f2fa] text-[#4a9cc2] text-[11px] px-3 py-1 rounded-lg shadow-sm font-medium">HOJE</span>
+        <span className="bg-[#0d3320] text-[#8696a0] text-[11px] px-3 py-1 rounded-lg shadow-sm font-medium">HOJE</span>
       </div>
       {conv.messages.map((msg, i) => (
         <div key={i} className={`flex ${msg.from === "atendimento" ? "justify-end" : "justify-start"}`}>
