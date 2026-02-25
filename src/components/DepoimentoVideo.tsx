@@ -3,18 +3,24 @@ import { Play, Pause } from "lucide-react";
 import { useRef, useState } from "react";
 import depoimentoImg from "@/assets/depoimento-cliente.jpg";
 import depoimentoVideo from "@/assets/depoimento-video-longo.mp4";
+import depoimentoDublagem from "@/assets/depoimento-dublagem.mp3";
 
 const DepoimentoVideo = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handlePlay = () => {
-    if (videoRef.current) {
+    if (videoRef.current && audioRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
+        audioRef.current.pause();
         setIsPlaying(false);
       } else {
+        // Sync audio to video time
+        audioRef.current.currentTime = videoRef.current.currentTime;
         videoRef.current.play();
+        audioRef.current.play();
         setIsPlaying(true);
       }
     }
@@ -43,11 +49,30 @@ const DepoimentoVideo = () => {
             poster={depoimentoImg}
             className="w-full h-full object-cover"
             playsInline
+            muted
             loop
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-            onEnded={() => setIsPlaying(false)}
+            onPlay={() => {
+              setIsPlaying(true);
+              if (audioRef.current) {
+                audioRef.current.currentTime = videoRef.current?.currentTime || 0;
+                audioRef.current.play();
+              }
+            }}
+            onPause={() => {
+              setIsPlaying(false);
+              audioRef.current?.pause();
+            }}
+            onEnded={() => {
+              setIsPlaying(false);
+              audioRef.current?.pause();
+            }}
+            onSeeked={() => {
+              if (audioRef.current && videoRef.current) {
+                audioRef.current.currentTime = videoRef.current.currentTime;
+              }
+            }}
           />
+          <audio ref={audioRef} src={depoimentoDublagem} loop />
           {/* Play/Pause overlay */}
           {!isPlaying && (
             <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity">
