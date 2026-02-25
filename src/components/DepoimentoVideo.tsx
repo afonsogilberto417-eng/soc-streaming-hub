@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import depoimentoImg from "@/assets/depoimento-cliente.jpg";
+import depoimentoVideo from "@/assets/depoimento-video.mp4";
 
 const transcricao = `Oi… gente… eu nem costumo gravar essas coisas, tá?
 
@@ -31,6 +32,20 @@ Aqui em casa deu super certo.`;
 
 const DepoimentoVideo = () => {
   const [expanded, setExpanded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -46,23 +61,33 @@ const DepoimentoVideo = () => {
 
       {/* Video-style card */}
       <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#111] shadow-[0_0_40px_rgba(0,0,0,0.4)]">
-        {/* Thumbnail with play overlay */}
-        <div className="relative aspect-[9/12] max-h-[420px] overflow-hidden">
-          <img
-            src={depoimentoImg}
-            alt="Cliente SocialFlix gravando depoimento"
+        {/* Video player */}
+        <div className="relative aspect-[9/12] max-h-[420px] overflow-hidden cursor-pointer" onClick={handlePlay}>
+          <video
+            ref={videoRef}
+            src={depoimentoVideo}
+            poster={depoimentoImg}
             className="w-full h-full object-cover"
+            playsInline
+            loop
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
           />
           {/* Play button overlay */}
-          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
-              <Play className="w-7 h-7 text-white fill-white ml-1" />
+          {!isPlaying && (
+            <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center">
+                <Play className="w-7 h-7 text-white fill-white ml-1" />
+              </div>
             </div>
-          </div>
+          )}
           {/* Duration badge */}
-          <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded">
-            1:24
-          </div>
+          {!isPlaying && (
+            <div className="absolute bottom-3 right-3 bg-black/70 text-white text-xs px-2 py-0.5 rounded">
+              0:05
+            </div>
+          )}
           {/* WhatsApp forward badge */}
           <div className="absolute top-3 left-3 bg-[#00a884]/90 text-white text-[11px] px-2.5 py-1 rounded-full font-medium flex items-center gap-1">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
