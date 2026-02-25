@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Rocket, Tv, Smartphone, Clock, Check } from "lucide-react";
+import DepoimentoVideo from "./DepoimentoVideo";
 
 const TesteSocialFlixSection = () => {
   return (
@@ -74,6 +75,8 @@ const TesteSocialFlixSection = () => {
             </span>
           </div>
         </motion.div>
+
+        <DepoimentoVideo />
       </div>
     </section>
   );
