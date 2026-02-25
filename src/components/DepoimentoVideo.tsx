@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
 import { useRef, useState } from "react";
-import depoimentoImg from "@/assets/depoimento-cliente.jpg";
+import depoimentoImg from "@/assets/depoimento-frame.jpg";
 import depoimentoVideo from "@/assets/depoimento-video-longo.mp4";
 import depoimentoDublagem from "@/assets/depoimento-dublagem.mp3";
 
