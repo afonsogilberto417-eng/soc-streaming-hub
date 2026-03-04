@@ -3,9 +3,10 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Mensal 1 Tela",
+    name: "Essencial 1 Tela Mensal",
     price: "R$ 34,99",
     features: ["1 Tela", "4K", "Full HD", "HD", "SD"],
+    link: "https://pay.lowify.com.br/checkout?product_id=bsqsCn",
   },
   {
     name: "Mensal 2 Telas",
@@ -64,7 +65,7 @@ const PlanosSection = () => {
               </ul>
 
               <motion.a
-                href="#"
+                href={plan.link || "#"}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="block text-center px-6 py-3 rounded-lg bg-primary font-display font-bold text-primary-foreground hover:glow-green-strong transition-shadow duration-300"
