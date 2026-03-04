@@ -1,5 +1,5 @@
 import logo from "@/assets/socialflix-logo.png";
-import { ShieldCheck, Award } from "lucide-react";
+import { ShieldCheck, Award, BadgeCheck } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -20,6 +20,13 @@ const Footer = () => {
             <div className="text-left">
               <span className="text-xs text-muted-foreground block">Avaliado no</span>
               <span className="text-sm font-display font-bold text-foreground">Reclame Aqui</span>
+            </div>
+          </div>
+          <div className="card-glass rounded-xl px-5 py-3 flex items-center gap-3">
+            <BadgeCheck className="w-8 h-8 text-primary" />
+            <div className="text-left">
+              <span className="text-xs text-muted-foreground block">Garantia de</span>
+              <span className="text-sm font-display font-bold text-foreground">7 Dias</span>
             </div>
           </div>
         </div>
