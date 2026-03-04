@@ -9,10 +9,11 @@ const plans = [
     link: "https://pay.lowify.com.br/checkout?product_id=bsqsCn",
   },
   {
-    name: "Mensal 2 Telas",
+    name: "Plus 2 Telas Mensal",
     price: "R$ 44,99",
     features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
     highlight: true,
+    link: "https://pay.lowify.com.br/checkout?product_id=KGzUxY",
   },
   {
     name: "Trimestral 2 Telas",
