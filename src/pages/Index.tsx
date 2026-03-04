@@ -7,7 +7,7 @@ import CompatibilidadeSection from "@/components/CompatibilidadeSection";
 import AvaliacoesSection from "@/components/AvaliacoesSection";
 import FAQSection from "@/components/FAQSection";
 import ContatoSection from "@/components/ContatoSection";
-import OfertaFinalSection from "@/components/OfertaFinalSection";
+
 import Footer from "@/components/Footer";
 import SocialProofPopup from "@/components/SocialProofPopup";
 
@@ -24,7 +24,7 @@ const Index = () => {
       <AvaliacoesSection />
       <FAQSection />
       <ContatoSection />
-      <OfertaFinalSection />
+      
       <Footer />
     </div>
   );
