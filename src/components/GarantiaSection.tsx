@@ -18,7 +18,7 @@ const GarantiaSection = () => {
             Garantia de <span className="text-gradient-neon">7 dias</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">
-            Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do seu dinheiro em até 7 dias. Sem burocracia, sem perguntas.
+            Assine com tranquilidade. Você tem 7 dias de garantia para testar e aproveitar todo o conteúdo da SocialFlix.
           </p>
         </motion.div>
       </div>
