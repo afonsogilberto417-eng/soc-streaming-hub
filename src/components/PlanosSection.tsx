@@ -19,6 +19,7 @@ const plans = [
     name: "Trimestral 2 Telas",
     price: "R$ 114,97",
     features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
+    link: "https://pay.lowify.com.br/checkout?product_id=lr4iDx",
   },
 ];
 
