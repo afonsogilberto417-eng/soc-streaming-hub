@@ -3,22 +3,47 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Essencial 1 Tela Mensal",
+    emoji: "🟢",
+    name: "Essencial – 1 Tela Mensal",
     price: "R$ 34,99",
-    features: ["1 Tela", "4K", "Full HD", "HD", "SD"],
+    features: [
+      "1 tela simultânea",
+      "+10.000 canais ao vivo",
+      "+20.000 filmes e séries",
+      "Qualidade SD, HD, Full HD e 4K",
+      "Funciona em Smart TV, TV Box e celular",
+      "Conteúdo atualizado diariamente",
+    ],
     link: "https://pay.lowify.com.br/checkout?product_id=bsqsCn",
   },
   {
-    name: "Plus 2 Telas Mensal",
+    emoji: "⭐",
+    name: "Plus – 2 Telas Mensal",
     price: "R$ 44,99",
-    features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
+    features: [
+      "2 telas simultâneas",
+      "+10.000 canais ao vivo",
+      "+20.000 filmes e séries",
+      "Canais de esportes e filmes lançamentos",
+      "Qualidade SD, HD, Full HD e 4K",
+      "Funciona em qualquer dispositivo",
+    ],
     highlight: true,
+    badge: "🔥 Plano mais escolhido pelos clientes",
     link: "https://pay.lowify.com.br/checkout?product_id=KGzUxY",
   },
   {
-    name: "Trimestral 2 Telas",
+    emoji: "💎",
+    name: "Trimestral – 2 Telas",
     price: "R$ 114,97",
-    features: ["2 Telas Simultâneas", "4K", "Full HD", "HD", "SD"],
+    features: [
+      "2 telas simultâneas",
+      "+10.000 canais ao vivo",
+      "+20.000 filmes e séries",
+      "Qualidade SD, HD, Full HD e 4K",
+      "Funciona em qualquer dispositivo",
+    ],
+    badge: "💰 Melhor custo-benefício",
     link: "https://pay.lowify.com.br/checkout?product_id=lr4iDx",
   },
 ];
