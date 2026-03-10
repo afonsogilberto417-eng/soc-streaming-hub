@@ -18,7 +18,7 @@ const plans = [
   },
   {
     emoji: "⭐",
-    name: "Plus – 2 Telas Mensal",
+    name: "Plus 2 Telas Mensal",
     price: "R$ 44,99",
     features: [
       "2 telas simultâneas",
