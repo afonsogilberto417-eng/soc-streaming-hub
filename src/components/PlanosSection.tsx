@@ -34,7 +34,7 @@ const plans = [
   },
   {
     emoji: "💎",
-    name: "Trimestral – 2 Telas",
+    name: "Trimestral 2 Telas",
     price: "R$ 114,97",
     features: [
       "2 telas simultâneas",
