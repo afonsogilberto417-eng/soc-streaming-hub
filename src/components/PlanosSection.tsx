@@ -79,8 +79,12 @@ const PlanosSection = () => {
                 </span>
               )}
 
-              <h3 className="text-lg font-display font-bold mb-2 text-foreground">{plan.name}</h3>
+              <h3 className="text-lg font-display font-bold mb-2 text-foreground">{plan.emoji} {plan.name}</h3>
               <p className="text-3xl font-display font-bold text-gradient-neon mb-6">{plan.price}</p>
+
+              {plan.badge && (
+                <p className="text-xs font-bold text-primary mb-4">{plan.badge}</p>
+              )}
 
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
