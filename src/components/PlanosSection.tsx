@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 const plans = [
   {
     emoji: "🟢",
-    name: "Essencial – 1 Tela Mensal",
+    name: "Essencial 1 Tela Mensal",
     price: "R$ 34,99",
     features: [
       "1 tela simultânea",
@@ -18,7 +18,7 @@ const plans = [
   },
   {
     emoji: "⭐",
-    name: "Plus – 2 Telas Mensal",
+    name: "Plus 2 Telas Mensal",
     price: "R$ 44,99",
     features: [
       "2 telas simultâneas",
@@ -34,7 +34,7 @@ const plans = [
   },
   {
     emoji: "💎",
-    name: "Trimestral – 2 Telas",
+    name: "Trimestral 2 Telas",
     price: "R$ 114,97",
     features: [
       "2 telas simultâneas",
