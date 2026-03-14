@@ -85,13 +85,14 @@ const VideoProvaSocialSection = () => {
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  // Register Vimeo event listeners once iframes load
+  // On first load: autoplay muted briefly, then pause to show video frame (not thumbnail)
   useEffect(() => {
     if (!isVisible || hasInitializedRef.current) return;
     hasInitializedRef.current = true;
     const timer = setTimeout(() => {
       iframeRefs.current.forEach((iframe) => {
         if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
           iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
           iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "*");
           iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
