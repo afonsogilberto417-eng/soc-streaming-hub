@@ -23,12 +23,16 @@ const VideoProvaSocialSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Set volume to 50% via Vimeo postMessage API
+  // Autoplay briefly then pause at ~1s to show video frame (not thumbnail)
   useEffect(() => {
     if (!isVisible) return;
     const timer = setTimeout(() => {
       iframeRefs.current.forEach((iframe) => {
         if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ method: "pause" }),
+            "*"
+          );
           iframe.contentWindow.postMessage(
             JSON.stringify({ method: "setVolume", value: 0.5 }),
             "*"
@@ -40,7 +44,7 @@ const VideoProvaSocialSection = () => {
   }, [isVisible]);
 
   const getIframeSrc = (videoId: string) => {
-    return `https://player.vimeo.com/video/${videoId}?autoplay=0&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&api=1#t=1s`;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&api=1#t=1s`;
   };
 
   return (
