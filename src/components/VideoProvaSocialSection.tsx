@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
-import thumbVideo1 from "@/assets/thumb-video-1.jpg";
-import thumbVideo2 from "@/assets/thumb-video-2.jpg";
-import thumbVideo3 from "@/assets/thumb-video-3.jpg";
+import thumbVideo1 from "@/assets/thumb-video-1.png";
+import thumbVideo2 from "@/assets/thumb-video-2.png";
+import thumbVideo3 from "@/assets/thumb-video-3.png";
 
 const videos = [
   { id: "1173468505", title: "Depoimento 1", thumb: thumbVideo1 },
