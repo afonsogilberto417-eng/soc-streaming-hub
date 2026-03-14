@@ -27,19 +27,47 @@ const VideoProvaSocialSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Listen for Vimeo messages: track time + pause others on play
+  const durationRef = useRef<number[]>([0, 0, 0]);
+
+  // Listen for Vimeo messages: track time, pause others on play, loop before end screen
   useEffect(() => {
     const handleMessage = (e: MessageEvent) => {
       if (typeof e.data !== "string") return;
       try {
         const data = JSON.parse(e.data);
-        if (data.event === "timeupdate" && data.data) {
-          iframeRefs.current.forEach((iframe, idx) => {
-            if (iframe && e.source === iframe.contentWindow) {
-              watchTimeRef.current[idx] = data.data.seconds || 0;
+
+        // Store duration when available
+        if (data.event === "ready") {
+          iframeRefs.current.forEach((iframe) => {
+            if (iframe?.contentWindow) {
+              iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
             }
           });
         }
+
+        if (data.method === "getDuration" && data.value) {
+          iframeRefs.current.forEach((iframe, idx) => {
+            if (iframe && e.source === iframe.contentWindow) {
+              durationRef.current[idx] = data.value;
+            }
+          });
+        }
+
+        if (data.event === "timeupdate" && data.data) {
+          iframeRefs.current.forEach((iframe, idx) => {
+            if (iframe && e.source === iframe.contentWindow) {
+              const seconds = data.data.seconds || 0;
+              watchTimeRef.current[idx] = seconds;
+              const duration = durationRef.current[idx];
+              // 2 seconds before end: loop back to start to avoid end screen
+              if (duration > 0 && seconds >= duration - 2) {
+                iframe.contentWindow!.postMessage(JSON.stringify({ method: "setCurrentTime", value: 0 }), "*");
+                iframe.contentWindow!.postMessage(JSON.stringify({ method: "play" }), "*");
+              }
+            }
+          });
+        }
+
         // When one video starts playing, pause the others
         if (data.event === "play") {
           iframeRefs.current.forEach((iframe) => {
