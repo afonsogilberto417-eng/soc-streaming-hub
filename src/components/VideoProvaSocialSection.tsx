@@ -74,7 +74,7 @@ const VideoProvaSocialSection = () => {
                   <iframe
                     ref={(el) => { iframeRefs.current[index] = el; }}
                     key={video.id}
-                    src={getIframeSrc(video.id)}
+                    src={getIframeSrc(video.id, index)}
                     className="w-full h-full"
                     allow="autoplay; picture-in-picture"
                     sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
