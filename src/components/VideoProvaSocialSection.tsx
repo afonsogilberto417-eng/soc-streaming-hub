@@ -62,7 +62,7 @@ const VideoProvaSocialSection = () => {
                     src={iframeSrc}
                     className="w-full h-full"
                     allow="autoplay; picture-in-picture"
-                    allowFullScreen
+                    
                     sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                     referrerPolicy="no-referrer"
                   />
