@@ -65,7 +65,7 @@ const VideoProvaSocialSection = () => {
           const seconds = Number(data.data.seconds ?? 0);
           const duration = durationRef.current[currentIndex];
           const startTime = getStartTime(currentIndex);
-          if (duration > 0 && seconds >= duration - 0.25) {
+          if (duration > 0 && seconds >= duration - 3) {
             currentIframe.contentWindow.postMessage(
               JSON.stringify({ method: "setCurrentTime", value: startTime }),
               "*"
