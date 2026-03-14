@@ -85,13 +85,14 @@ const VideoProvaSocialSection = () => {
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  // Register Vimeo event listeners once iframes load
+  // On first load: autoplay muted briefly, then pause to show video frame (not thumbnail)
   useEffect(() => {
     if (!isVisible || hasInitializedRef.current) return;
     hasInitializedRef.current = true;
     const timer = setTimeout(() => {
       iframeRefs.current.forEach((iframe) => {
         if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
           iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
           iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "*");
           iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
@@ -103,7 +104,7 @@ const VideoProvaSocialSection = () => {
 
   const getIframeSrc = (videoId: string, index: number) => {
     const startTime = index === 2 ? "1s" : "0s";
-    return `https://player.vimeo.com/video/${videoId}?autoplay=0&muted=0&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&pip=0&airplay=0&cc=0&outro=0&api=1#t=${startTime}`;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&pip=0&airplay=0&cc=0&outro=0&api=1#t=${startTime}`;
   };
 
   return (
