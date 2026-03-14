@@ -169,9 +169,9 @@ const VideoProvaSocialSection = () => {
                   onClick={(e) => e.preventDefault()}
                   onContextMenu={(e) => e.preventDefault()}
                 />
-                {/* Block bottom-right (Vimeo badge) */}
+                {/* Block bottom-right (Vimeo badge only, leave volume accessible) */}
                 <div
-                  className="absolute bottom-0 right-0 w-32 h-10 z-10"
+                  className="absolute bottom-0 right-0 w-10 h-10 z-10"
                   style={{ pointerEvents: "auto" }}
                   onClick={(e) => e.preventDefault()}
                   onContextMenu={(e) => e.preventDefault()}
