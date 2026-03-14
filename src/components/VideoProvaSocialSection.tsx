@@ -89,14 +89,14 @@ const VideoProvaSocialSection = () => {
                 )}
                 {/* Block top bar (Vimeo logo / links) */}
                 <div
-                  className="absolute top-0 left-0 right-0 h-12 z-10"
+                  className="absolute top-0 left-0 right-0 h-12 z-10 bg-background"
                   style={{ pointerEvents: "auto" }}
                   onClick={(e) => e.preventDefault()}
                   onContextMenu={(e) => e.preventDefault()}
                 />
                 {/* Block bottom-right (Vimeo badge) */}
                 <div
-                  className="absolute bottom-0 right-0 w-32 h-10 z-10"
+                  className="absolute bottom-0 right-0 w-32 h-10 z-10 bg-background"
                   style={{ pointerEvents: "auto" }}
                   onClick={(e) => e.preventDefault()}
                   onContextMenu={(e) => e.preventDefault()}
