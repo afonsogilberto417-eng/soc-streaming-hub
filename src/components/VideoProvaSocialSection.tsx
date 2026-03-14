@@ -61,7 +61,7 @@ const VideoProvaSocialSection = () => {
                     key={videos[current].id}
                     src={iframeSrc}
                     className="w-full h-full"
-                    allow="autoplay; fullscreen; picture-in-picture"
+                    allow="autoplay; picture-in-picture"
                     allowFullScreen
                     sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                     referrerPolicy="no-referrer"
