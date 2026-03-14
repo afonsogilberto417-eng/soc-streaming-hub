@@ -16,11 +16,9 @@ const VideoProvaSocialSection = () => {
   const goPrev = () => setCurrent((prev) => (prev - 1 + videos.length) % videos.length);
   const goNext = () => setCurrent((prev) => (prev + 1) % videos.length);
 
-  // Observe visibility — autoplay when in view, stop when out
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
@@ -29,8 +27,8 @@ const VideoProvaSocialSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Build iframe src based on visibility
-  const iframeSrc = `https://player.vimeo.com/video/${videos[current].id}?autoplay=${isVisible ? 1 : 0}&muted=0&loop=1&title=0&byline=0&portrait=0`;
+  // Params: allow play/pause, mute, fullscreen, seek. Hide title/byline/logo, block external links
+  const iframeSrc = `https://player.vimeo.com/video/${videos[current].id}?autoplay=${isVisible ? 1 : 0}&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0`;
 
   return (
     <section ref={sectionRef} className="relative bg-gradient-section py-16 md:py-24">
@@ -56,8 +54,8 @@ const VideoProvaSocialSection = () => {
           </button>
 
           <div className="flex-1 max-w-lg">
-            <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#111] shadow-[0_0_40px_rgba(0,0,0,0.4)]">
-              <div className="aspect-[9/16] w-full">
+            <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#111] shadow-[0_0_40px_rgba(0,0,0,0.4)] relative">
+              <div className="aspect-[9/16] w-full relative">
                 {isVisible ? (
                   <iframe
                     key={videos[current].id}
@@ -65,10 +63,26 @@ const VideoProvaSocialSection = () => {
                     className="w-full h-full"
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowFullScreen
+                    sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+                    referrerPolicy="no-referrer"
                   />
                 ) : (
                   <div className="w-full h-full bg-black" />
                 )}
+                {/* Overlay bloqueando o logo/link do Vimeo no canto superior */}
+                <div
+                  className="absolute top-0 left-0 right-0 h-12 z-10"
+                  style={{ pointerEvents: "auto" }}
+                  onClick={(e) => e.preventDefault()}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+                {/* Overlay bloqueando o título clicável do Vimeo no canto inferior direito */}
+                <div
+                  className="absolute bottom-0 right-0 w-32 h-10 z-10"
+                  style={{ pointerEvents: "auto" }}
+                  onClick={(e) => e.preventDefault()}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
               </div>
             </div>
             <p className="text-center text-xs text-muted-foreground mt-3 font-display">
