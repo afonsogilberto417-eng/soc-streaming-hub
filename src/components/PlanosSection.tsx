@@ -33,7 +33,7 @@ const plans = [
     link: "https://pay.lowify.com.br/checkout?product_id=KGzUxY",
   },
   {
-    emoji: "💎",
+    emoji: "",
     name: "Trimestral 2 Telas",
     price: "R$ 114,97",
     features: [
