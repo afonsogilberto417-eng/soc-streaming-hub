@@ -25,6 +25,7 @@ const Index = () => {
       <GarantiaSection />
       <CompatibilidadeSection />
       <AvaliacoesSection />
+      <VideoProvaSocialSection />
       <FAQSection />
       <ContatoSection />
       
