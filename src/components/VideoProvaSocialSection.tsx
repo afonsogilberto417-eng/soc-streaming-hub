@@ -68,9 +68,12 @@ const VideoProvaSocialSection = () => {
           });
         }
 
-        // When one video starts playing, pause the others
+        // When one video starts playing, pause others and set volume to 50%
         if (data.event === "play") {
           iframeRefs.current.forEach((iframe) => {
+            if (iframe && e.source === iframe.contentWindow && iframe.contentWindow) {
+              iframe.contentWindow.postMessage(JSON.stringify({ method: "setVolume", value: 0.5 }), "*");
+            }
             if (iframe && e.source !== iframe.contentWindow && iframe.contentWindow) {
               iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
             }
