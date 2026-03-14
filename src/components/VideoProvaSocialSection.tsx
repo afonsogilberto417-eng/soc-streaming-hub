@@ -59,10 +59,10 @@ const VideoProvaSocialSection = () => {
               const seconds = data.data.seconds || 0;
               watchTimeRef.current[idx] = seconds;
               const duration = durationRef.current[idx];
-              // 2 seconds before end: loop back to start to avoid end screen
+              // 2 seconds before end: reset to start and pause
               if (duration > 0 && seconds >= duration - 2) {
                 iframe.contentWindow!.postMessage(JSON.stringify({ method: "setCurrentTime", value: 0 }), "*");
-                iframe.contentWindow!.postMessage(JSON.stringify({ method: "play" }), "*");
+                iframe.contentWindow!.postMessage(JSON.stringify({ method: "pause" }), "*");
               }
             }
           });
