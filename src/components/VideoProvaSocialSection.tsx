@@ -172,6 +172,13 @@ const VideoProvaSocialSection = () => {
                   onClick={(e) => e.preventDefault()}
                   onContextMenu={(e) => e.preventDefault()}
                 />
+                {/* Block bottom-right buttons (settings, PiP, fullscreen, etc.) */}
+                <div
+                  className="absolute bottom-0 right-0 w-[45%] h-12 z-10"
+                  style={{ pointerEvents: "auto" }}
+                  onClick={(e) => e.preventDefault()}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
               </div>
             </motion.div>
           ))}
