@@ -297,7 +297,7 @@ const AvaliacoesSection = () => {
           viewport={{ once: true }}
           className="text-2xl md:text-4xl font-display font-bold text-center mb-2"
         >
-          ⭐ O que estão dizendo sobre a{" "}
+          O que estão dizendo sobre a{" "}
           <span className="text-gradient-neon">SocialFlix</span>
         </motion.h2>
         <p className="text-center text-muted-foreground mb-4 text-sm">

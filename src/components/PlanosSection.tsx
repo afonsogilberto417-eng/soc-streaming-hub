@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    emoji: "🟢",
+    emoji: "",
     name: "Essencial 1 Tela Mensal",
     price: "R$ 34,99",
     features: [
@@ -17,7 +17,7 @@ const plans = [
     link: "https://pay.lowify.com.br/checkout?product_id=bsqsCn",
   },
   {
-    emoji: "⭐",
+    emoji: "",
     name: "Plus 2 Telas Mensal",
     price: "R$ 44,99",
     features: [
@@ -33,7 +33,7 @@ const plans = [
     link: "https://pay.lowify.com.br/checkout?product_id=KGzUxY",
   },
   {
-    emoji: "💎",
+    emoji: "",
     name: "Trimestral 2 Telas",
     price: "R$ 114,97",
     features: [

@@ -105,7 +105,7 @@ const VideoProvaSocialSection = () => {
           viewport={{ once: true }}
           className="text-2xl md:text-4xl font-display font-bold text-center mb-2"
         >
-          🎥 Veja o que nossos clientes dizem
+          Veja o que nossos clientes dizem
         </motion.h2>
         <p className="text-center text-muted-foreground mb-8 text-sm">
           Depoimentos reais em vídeo
