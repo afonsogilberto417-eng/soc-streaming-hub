@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Clock } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const plans = [
   {
     emoji: "",
     name: "Essencial 1 Tela Mensal",
+    oldPrice: "R$ 40,00",
     price: "R$ 34,99",
     features: [
       "1 tela simultânea",
@@ -19,6 +21,7 @@ const plans = [
   {
     emoji: "",
     name: "Plus 2 Telas Mensal",
+    oldPrice: "R$ 50,00",
     price: "R$ 44,99",
     features: [
       "2 telas simultâneas",
@@ -35,6 +38,7 @@ const plans = [
   {
     emoji: "",
     name: "Trimestral 2 Telas",
+    oldPrice: "R$ 120,00",
     price: "R$ 114,97",
     features: [
       "2 telas simultâneas",
@@ -49,9 +53,37 @@ const plans = [
 ];
 
 const PlanosSection = () => {
+  const [timeLeft, setTimeLeft] = useState(5 * 60);
+
+  useEffect(() => {
+    if (timeLeft <= 0) return;
+    const timer = setInterval(() => setTimeLeft((t) => Math.max(0, t - 1)), 1000);
+    return () => clearInterval(timer);
+  }, [timeLeft]);
+
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+
   return (
     <section id="planos" className="py-24 px-4 bg-gradient-section">
       <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex items-center justify-center gap-3 mb-6"
+        >
+          <div className="flex items-center gap-2 bg-destructive/20 border border-destructive/40 rounded-full px-5 py-2.5">
+            <Clock className="w-5 h-5 text-destructive animate-pulse" />
+            <span className="text-destructive font-display font-bold text-lg tracking-wide">
+              {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
+            </span>
+            <span className="text-destructive/80 text-sm font-medium ml-1">
+              Oferta por tempo limitado!
+            </span>
+          </div>
+        </motion.div>
+
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,7 +112,12 @@ const PlanosSection = () => {
               )}
 
               <h3 className="text-lg font-display font-bold mb-2 text-foreground">{plan.emoji} {plan.name}</h3>
-              <p className="text-3xl font-display font-bold text-gradient-neon mb-6">{plan.price}</p>
+              <div className="mb-6">
+                {plan.oldPrice && (
+                  <span className="text-muted-foreground text-base line-through mr-2">{plan.oldPrice}</span>
+                )}
+                <span className="text-3xl font-display font-bold text-gradient-neon">{plan.price}</span>
+              </div>
 
               {plan.badge && (
                 <p className="text-xs font-bold text-primary mb-4">{plan.badge}</p>
