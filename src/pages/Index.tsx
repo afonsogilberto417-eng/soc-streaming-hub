@@ -6,6 +6,7 @@ import PlanosSection from "@/components/PlanosSection";
 import GarantiaSection from "@/components/GarantiaSection";
 import CompatibilidadeSection from "@/components/CompatibilidadeSection";
 import AvaliacoesSection from "@/components/AvaliacoesSection";
+import VideoProvaSocialSection from "@/components/VideoProvaSocialSection";
 import FAQSection from "@/components/FAQSection";
 import ContatoSection from "@/components/ContatoSection";
 
