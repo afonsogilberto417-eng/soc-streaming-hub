@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    emoji: "🟢",
+    emoji: "",
     name: "Essencial 1 Tela Mensal",
     price: "R$ 34,99",
     features: [
