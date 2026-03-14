@@ -198,7 +198,7 @@ const VideoProvaSocialSection = () => {
                     onClick={() => handleThumbnailClick(index)}
                   >
                     <img
-                      src={`https://vumbnail.com/${video.id}.jpg`}
+                      src={video.thumb}
                       alt={video.title}
                       className="w-full h-full object-cover pointer-events-none"
                     />
