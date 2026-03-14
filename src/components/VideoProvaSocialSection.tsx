@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const videos = [
@@ -7,104 +7,125 @@ const videos = [
   { id: "1173465376", title: "Depoimento 3" },
 ];
 
-const WATCH_THRESHOLD = 5; // seconds – if watched more than this, resume; otherwise reset
-
 const VideoProvaSocialSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const iframeRefs = useRef<(HTMLIFrameElement | null)[]>([]);
-  const watchTimeRef = useRef<number[]>([0, 0, 0]);
+  const durationRef = useRef<number[]>([0, 0, 0]);
   const hasInitializedRef = useRef(false);
+
+  const getStartTime = (index: number) => (index === 2 ? 1 : 0);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
     );
+
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  const durationRef = useRef<number[]>([0, 0, 0]);
-
-  // Listen for Vimeo messages: track time, pause others on play, loop before end screen
+  // Listen for Vimeo messages: exclusive play, volume=50%, and prevent end screen
   useEffect(() => {
     const handleMessage = (e: MessageEvent) => {
       if (typeof e.data !== "string") return;
+
       try {
         const data = JSON.parse(e.data);
 
-        // Store duration when available
-        if (data.event === "ready") {
-          iframeRefs.current.forEach((iframe) => {
-            if (iframe?.contentWindow) {
-              iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
-            }
-          });
+        const currentIndex = iframeRefs.current.findIndex(
+          (iframe) => iframe?.contentWindow === e.source
+        );
+
+        if (currentIndex === -1) return;
+
+        const currentIframe = iframeRefs.current[currentIndex];
+        if (!currentIframe?.contentWindow) return;
+
+        if (data.method === "getDuration" && typeof data.value === "number") {
+          durationRef.current[currentIndex] = data.value;
         }
 
-        if (data.method === "getDuration" && data.value) {
+        if (data.event === "play") {
+          // keep clicked video at 50% volume
+          currentIframe.contentWindow.postMessage(
+            JSON.stringify({ method: "setVolume", value: 0.5 }),
+            "*"
+          );
+
+          // pause all other videos
           iframeRefs.current.forEach((iframe, idx) => {
-            if (iframe && e.source === iframe.contentWindow) {
-              durationRef.current[idx] = data.value;
+            if (idx !== currentIndex && iframe?.contentWindow) {
+              iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
             }
           });
         }
 
         if (data.event === "timeupdate" && data.data) {
-          iframeRefs.current.forEach((iframe, idx) => {
-            if (iframe && e.source === iframe.contentWindow) {
-              const seconds = data.data.seconds || 0;
-              watchTimeRef.current[idx] = seconds;
-              const duration = durationRef.current[idx];
-              // 2 seconds before end: reset to start and pause
-              if (duration > 0 && seconds >= duration - 2) {
-                iframe.contentWindow!.postMessage(JSON.stringify({ method: "setCurrentTime", value: 0 }), "*");
-                iframe.contentWindow!.postMessage(JSON.stringify({ method: "pause" }), "*");
-              }
-            }
-          });
+          const seconds = Number(data.data.seconds ?? 0);
+          const duration = durationRef.current[currentIndex];
+          const startTime = getStartTime(currentIndex);
+
+          // right before end, return to start and pause (avoid replay/follow screen)
+          if (duration > 0 && seconds >= duration - 0.25) {
+            currentIframe.contentWindow.postMessage(
+              JSON.stringify({ method: "setCurrentTime", value: startTime }),
+              "*"
+            );
+            currentIframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
+          }
         }
 
-        // When one video starts playing, pause others and set volume to 50%
-        if (data.event === "play") {
-          iframeRefs.current.forEach((iframe) => {
-            if (iframe && e.source === iframe.contentWindow && iframe.contentWindow) {
-              iframe.contentWindow.postMessage(JSON.stringify({ method: "setVolume", value: 0.5 }), "*");
-            }
-            if (iframe && e.source !== iframe.contentWindow && iframe.contentWindow) {
-              iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
-            }
-          });
+        if (data.event === "ended") {
+          const startTime = getStartTime(currentIndex);
+          currentIframe.contentWindow.postMessage(
+            JSON.stringify({ method: "setCurrentTime", value: startTime }),
+            "*"
+          );
+          currentIframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
         }
       } catch {}
     };
+
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  // On first load: autoplay muted briefly, then pause to show video frame (not thumbnail)
+  // Register Vimeo event listeners once iframes are mounted
   useEffect(() => {
     if (!isVisible || hasInitializedRef.current) return;
     hasInitializedRef.current = true;
+
     const timer = setTimeout(() => {
       iframeRefs.current.forEach((iframe) => {
-        if (iframe?.contentWindow) {
-          iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
-          iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
-          iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "*");
-          iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
-        }
+        if (!iframe?.contentWindow) return;
+
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ method: "addEventListener", value: "timeupdate" }),
+          "*"
+        );
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ method: "addEventListener", value: "play" }),
+          "*"
+        );
+        iframe.contentWindow.postMessage(
+          JSON.stringify({ method: "addEventListener", value: "ended" }),
+          "*"
+        );
+        iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
       });
-    }, 1500);
+    }, 600);
+
     return () => clearTimeout(timer);
   }, [isVisible]);
 
   const getIframeSrc = (videoId: string, index: number) => {
     const startTime = index === 2 ? "1s" : "0s";
-    return `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&pip=0&airplay=0&cc=0&outro=0&api=1#t=${startTime}`;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=0&muted=0&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&pip=0&airplay=0&cc=0&outro=0&api=1#t=${startTime}`;
   };
 
   return (
