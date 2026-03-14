@@ -30,7 +30,7 @@ const VideoProvaSocialSection = () => {
   }, []);
 
   // Build iframe src based on visibility
-  const iframeSrc = `https://player.vimeo.com/video/${videos[current].id}?autoplay=${isVisible ? 1 : 0}&muted=1&loop=1&title=0&byline=0&portrait=0&background=0`;
+  const iframeSrc = `https://player.vimeo.com/video/${videos[current].id}?autoplay=${isVisible ? 1 : 0}&muted=0&loop=1&title=0&byline=0&portrait=0`;
 
   return (
     <section ref={sectionRef} className="relative bg-gradient-section py-16 md:py-24">
