@@ -68,9 +68,12 @@ const VideoProvaSocialSection = () => {
           });
         }
 
-        // When one video starts playing, pause the others
+        // When one video starts playing, pause others and set volume to 50%
         if (data.event === "play") {
           iframeRefs.current.forEach((iframe) => {
+            if (iframe && e.source === iframe.contentWindow && iframe.contentWindow) {
+              iframe.contentWindow.postMessage(JSON.stringify({ method: "setVolume", value: 0.5 }), "*");
+            }
             if (iframe && e.source !== iframe.contentWindow && iframe.contentWindow) {
               iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
             }
@@ -120,7 +123,7 @@ const VideoProvaSocialSection = () => {
 
   const getIframeSrc = (videoId: string, index: number) => {
     const startTime = index === 2 ? "1s" : "0s";
-    return `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&outro=0&api=1#t=${startTime}`;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&pip=0&airplay=0&cc=0&outro=0&api=1#t=${startTime}`;
   };
 
   return (
