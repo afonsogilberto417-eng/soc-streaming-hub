@@ -40,8 +40,9 @@ const VideoProvaSocialSection = () => {
   }, [isVisible]);
 
   const getIframeSrc = (videoId: string, index: number) => {
-    const autoplay = isVisible && index === 0 ? 1 : 0;
-    return `https://player.vimeo.com/video/${videoId}?autoplay=${autoplay}&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&api=1`;
+    const muted = index === 0 ? 0 : 1;
+    const autoplay = isVisible ? 1 : 0;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=${autoplay}&muted=${muted}&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&api=1`;
   };
 
   return (
