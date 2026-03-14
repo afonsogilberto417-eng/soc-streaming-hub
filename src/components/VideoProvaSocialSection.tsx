@@ -67,6 +67,7 @@ const VideoProvaSocialSection = () => {
             iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
             iframe.contentWindow.postMessage(JSON.stringify({ method: "setVolume", value: 0.5 }), "*");
             iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
+            iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "*");
           }
         });
       }, 1500);
