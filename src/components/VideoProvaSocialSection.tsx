@@ -28,7 +28,7 @@ const VideoProvaSocialSection = () => {
   }, []);
 
   // Params: allow play/pause, mute, fullscreen, seek. Hide title/byline/logo, block external links
-  const iframeSrc = `https://player.vimeo.com/video/${videos[current].id}?autoplay=${isVisible ? 1 : 0}&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0`;
+  const iframeSrc = `https://player.vimeo.com/video/${videos[current].id}?autoplay=${isVisible ? 1 : 0}&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0`;
 
   return (
     <section ref={sectionRef} className="relative bg-gradient-section py-16 md:py-24">
@@ -61,8 +61,8 @@ const VideoProvaSocialSection = () => {
                     key={videos[current].id}
                     src={iframeSrc}
                     className="w-full h-full"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
+                    allow="autoplay; picture-in-picture"
+                    
                     sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
                     referrerPolicy="no-referrer"
                   />
