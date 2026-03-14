@@ -1,5 +1,6 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const videos = [
@@ -9,12 +10,22 @@ const videos = [
 ];
 
 const VideoProvaSocialSection = () => {
-  const [current, setCurrent] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  const goPrev = () => setCurrent((prev) => (prev - 1 + videos.length) % videos.length);
-  const goNext = () => setCurrent((prev) => (prev + 1) % videos.length);
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -27,8 +38,10 @@ const VideoProvaSocialSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Params: allow play/pause, mute, fullscreen, seek. Hide title/byline/logo, block external links
-  const iframeSrc = `https://player.vimeo.com/video/${videos[current].id}?autoplay=${isVisible ? 1 : 0}&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0`;
+  const getIframeSrc = (videoId: string, index: number) => {
+    const shouldAutoplay = isVisible && index === selectedIndex ? 1 : 0;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=${shouldAutoplay}&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0`;
+  };
 
   return (
     <section ref={sectionRef} className="relative bg-gradient-section py-16 md:py-24">
@@ -47,55 +60,70 @@ const VideoProvaSocialSection = () => {
 
         <div className="relative flex items-center justify-center gap-3 md:gap-6 w-full max-w-2xl">
           <button
-            onClick={goPrev}
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all flex-shrink-0"
+            onClick={() => emblaApi?.scrollPrev()}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all flex-shrink-0 z-10"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          <div className="flex-1 max-w-lg">
-            <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#111] shadow-[0_0_40px_rgba(0,0,0,0.4)] relative">
-              <div className="aspect-[9/16] w-full relative">
-                {isVisible ? (
-                  <iframe
-                    key={videos[current].id}
-                    src={iframeSrc}
-                    className="w-full h-full"
-                    allow="autoplay; picture-in-picture"
-                    
-                    sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-                    referrerPolicy="no-referrer"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-black" />
-                )}
-                {/* Overlay bloqueando o logo/link do Vimeo no canto superior */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-12 z-10"
-                  style={{ pointerEvents: "auto" }}
-                  onClick={(e) => e.preventDefault()}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-                {/* Overlay bloqueando o título clicável do Vimeo no canto inferior direito */}
-                <div
-                  className="absolute bottom-0 right-0 w-32 h-10 z-10"
-                  style={{ pointerEvents: "auto" }}
-                  onClick={(e) => e.preventDefault()}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              </div>
+          <div className="flex-1 max-w-lg overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {videos.map((video, index) => (
+                <div key={video.id} className="flex-[0_0_100%] min-w-0 px-1">
+                  <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#111] shadow-[0_0_40px_rgba(0,0,0,0.4)] relative">
+                    <div className="aspect-[9/16] w-full relative">
+                      {isVisible ? (
+                        <iframe
+                          key={`${video.id}-${index === selectedIndex}`}
+                          src={getIframeSrc(video.id, index)}
+                          className="w-full h-full"
+                          allow="autoplay; picture-in-picture"
+                          sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-black" />
+                      )}
+                      <div
+                        className="absolute top-0 left-0 right-0 h-12 z-10"
+                        style={{ pointerEvents: "auto" }}
+                        onClick={(e) => e.preventDefault()}
+                        onContextMenu={(e) => e.preventDefault()}
+                      />
+                      <div
+                        className="absolute bottom-0 right-0 w-32 h-10 z-10"
+                        style={{ pointerEvents: "auto" }}
+                        onClick={(e) => e.preventDefault()}
+                        onContextMenu={(e) => e.preventDefault()}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <p className="text-center text-xs text-muted-foreground mt-3 font-display">
-              {current + 1} / {videos.length}
-            </p>
           </div>
 
           <button
-            onClick={goNext}
-            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all flex-shrink-0"
+            onClick={() => emblaApi?.scrollNext()}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-all flex-shrink-0 z-10"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
+        </div>
+
+        {/* Dots */}
+        <div className="flex gap-2 mt-4">
+          {videos.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => emblaApi?.scrollTo(index)}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${
+                index === selectedIndex
+                  ? "bg-primary scale-110"
+                  : "bg-white/30 hover:bg-white/50"
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
