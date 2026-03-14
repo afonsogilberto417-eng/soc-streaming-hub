@@ -39,8 +39,8 @@ const VideoProvaSocialSection = () => {
     return () => clearTimeout(timer);
   }, [isVisible]);
 
-  const getIframeSrc = (videoId: string) => {
-    const autoplay = isVisible ? 1 : 0;
+  const getIframeSrc = (videoId: string, index: number) => {
+    const autoplay = isVisible && index === 0 ? 1 : 0;
     return `https://player.vimeo.com/video/${videoId}?autoplay=${autoplay}&muted=0&loop=1&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&api=1`;
   };
 
