@@ -23,12 +23,16 @@ const VideoProvaSocialSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Set volume to 50% via Vimeo postMessage API
+  // Autoplay briefly then pause at ~1s to show video frame (not thumbnail)
   useEffect(() => {
     if (!isVisible) return;
     const timer = setTimeout(() => {
       iframeRefs.current.forEach((iframe) => {
         if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ method: "pause" }),
+            "*"
+          );
           iframe.contentWindow.postMessage(
             JSON.stringify({ method: "setVolume", value: 0.5 }),
             "*"
