@@ -7,10 +7,14 @@ const videos = [
   { id: "1173465376", title: "Depoimento 3" },
 ];
 
+const WATCH_THRESHOLD = 5; // seconds – if watched more than this, resume; otherwise reset
+
 const VideoProvaSocialSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const iframeRefs = useRef<(HTMLIFrameElement | null)[]>([]);
+  const watchTimeRef = useRef<number[]>([0, 0, 0]);
+  const hasInitializedRef = useRef(false);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -23,24 +27,57 @@ const VideoProvaSocialSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Autoplay briefly then pause at ~1s to show video frame (not thumbnail)
+  // Listen for Vimeo timeupdate messages to track watch progress
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      if (typeof e.data !== "string") return;
+      try {
+        const data = JSON.parse(e.data);
+        if (data.event === "timeupdate" && data.data) {
+          // Find which iframe sent this
+          iframeRefs.current.forEach((iframe, idx) => {
+            if (iframe && e.source === iframe.contentWindow) {
+              watchTimeRef.current[idx] = data.data.seconds || 0;
+            }
+          });
+        }
+      } catch {}
+    };
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
+  // On first visible: autoplay briefly then pause. On re-visible: resume or reset.
   useEffect(() => {
     if (!isVisible) return;
-    const timer = setTimeout(() => {
-      iframeRefs.current.forEach((iframe) => {
-        if (iframe?.contentWindow) {
-          iframe.contentWindow.postMessage(
-            JSON.stringify({ method: "pause" }),
-            "*"
-          );
-          iframe.contentWindow.postMessage(
-            JSON.stringify({ method: "setVolume", value: 0.5 }),
-            "*"
-          );
+
+    if (!hasInitializedRef.current) {
+      // First time: autoplay, then pause after 1.5s
+      hasInitializedRef.current = true;
+      const timer = setTimeout(() => {
+        iframeRefs.current.forEach((iframe) => {
+          if (iframe?.contentWindow) {
+            iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
+            iframe.contentWindow.postMessage(JSON.stringify({ method: "setVolume", value: 0.5 }), "*");
+            iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
+          }
+        });
+      }, 1500);
+      return () => clearTimeout(timer);
+    } else {
+      // Re-entering: check each video's watch time
+      iframeRefs.current.forEach((iframe, idx) => {
+        if (!iframe?.contentWindow) return;
+        const watched = watchTimeRef.current[idx];
+        if (watched < WATCH_THRESHOLD) {
+          // Reset to beginning
+          iframe.contentWindow.postMessage(JSON.stringify({ method: "setCurrentTime", value: 0 }), "*");
+          iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
+          watchTimeRef.current[idx] = 0;
         }
+        // If watched >= threshold, do nothing (keeps current position)
       });
-    }, 1500);
-    return () => clearTimeout(timer);
+    }
   }, [isVisible]);
 
   const getIframeSrc = (videoId: string, index: number) => {
@@ -89,14 +126,14 @@ const VideoProvaSocialSection = () => {
                 )}
                 {/* Block top bar (Vimeo logo / links) */}
                 <div
-                  className="absolute top-0 left-0 right-0 h-12 z-10 bg-background"
+                  className="absolute top-0 left-0 right-0 h-12 z-10"
                   style={{ pointerEvents: "auto" }}
                   onClick={(e) => e.preventDefault()}
                   onContextMenu={(e) => e.preventDefault()}
                 />
                 {/* Block bottom-right (Vimeo badge) */}
                 <div
-                  className="absolute bottom-0 right-0 w-32 h-10 z-10 bg-background"
+                  className="absolute bottom-0 right-0 w-32 h-10 z-10"
                   style={{ pointerEvents: "auto" }}
                   onClick={(e) => e.preventDefault()}
                   onContextMenu={(e) => e.preventDefault()}
