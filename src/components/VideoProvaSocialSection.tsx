@@ -85,45 +85,25 @@ const VideoProvaSocialSection = () => {
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  // On first visible: autoplay briefly then pause. On re-visible: resume or reset.
+  // Register Vimeo event listeners once iframes load
   useEffect(() => {
-    if (!isVisible) return;
-
-    if (!hasInitializedRef.current) {
-      // First time: autoplay, then pause after 1.5s
-      hasInitializedRef.current = true;
-      const timer = setTimeout(() => {
-        iframeRefs.current.forEach((iframe) => {
-          if (iframe?.contentWindow) {
-            iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
-            iframe.contentWindow.postMessage(JSON.stringify({ method: "setVolume", value: 0.5 }), "*");
-            iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
-            iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "*");
-            iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "ready" }), "*");
-            iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
-          }
-        });
-      }, 1500);
-      return () => clearTimeout(timer);
-    } else {
-      // Re-entering: check each video's watch time
-      iframeRefs.current.forEach((iframe, idx) => {
-        if (!iframe?.contentWindow) return;
-        const watched = watchTimeRef.current[idx];
-        if (watched < WATCH_THRESHOLD) {
-          // Reset to beginning
-          iframe.contentWindow.postMessage(JSON.stringify({ method: "setCurrentTime", value: 0 }), "*");
-          iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
-          watchTimeRef.current[idx] = 0;
+    if (!isVisible || hasInitializedRef.current) return;
+    hasInitializedRef.current = true;
+    const timer = setTimeout(() => {
+      iframeRefs.current.forEach((iframe) => {
+        if (iframe?.contentWindow) {
+          iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
+          iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "*");
+          iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
         }
-        // If watched >= threshold, do nothing (keeps current position)
       });
-    }
+    }, 1500);
+    return () => clearTimeout(timer);
   }, [isVisible]);
 
   const getIframeSrc = (videoId: string, index: number) => {
     const startTime = index === 2 ? "1s" : "0s";
-    return `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=1&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&pip=0&airplay=0&cc=0&outro=0&api=1#t=${startTime}`;
+    return `https://player.vimeo.com/video/${videoId}?autoplay=0&muted=0&loop=0&title=0&byline=0&portrait=0&badge=0&dnt=1&controls=1&transparent=0&quality_selector=0&fullscreen=0&settings=0&pip=0&airplay=0&cc=0&outro=0&api=1#t=${startTime}`;
   };
 
   return (
