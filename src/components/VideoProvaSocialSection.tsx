@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Play } from "lucide-react";
 
 const videos = [
   { id: "1173468505", title: "Depoimento 1" },
@@ -9,6 +10,7 @@ const videos = [
 
 const VideoProvaSocialSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activePlayers, setActivePlayers] = useState<boolean[]>([false, false, false]);
   const sectionRef = useRef<HTMLElement>(null);
   const iframeRefs = useRef<(HTMLIFrameElement | null)[]>([]);
   const durationRef = useRef<number[]>([0, 0, 0]);
@@ -19,30 +21,24 @@ const VideoProvaSocialSection = () => {
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
       { threshold: 0.3 }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, []);
 
-  // Listen for Vimeo messages: exclusive play, volume=50%, and prevent end screen
+  // Listen for Vimeo messages
   useEffect(() => {
     const handleMessage = (e: MessageEvent) => {
       if (typeof e.data !== "string") return;
-
       try {
         const data = JSON.parse(e.data);
-
         const currentIndex = iframeRefs.current.findIndex(
           (iframe) => iframe?.contentWindow === e.source
         );
-
         if (currentIndex === -1) return;
-
         const currentIframe = iframeRefs.current[currentIndex];
         if (!currentIframe?.contentWindow) return;
 
@@ -51,13 +47,10 @@ const VideoProvaSocialSection = () => {
         }
 
         if (data.event === "play") {
-          // keep clicked video at 50% volume
           currentIframe.contentWindow.postMessage(
             JSON.stringify({ method: "setVolume", value: 0.5 }),
             "*"
           );
-
-          // pause all other videos
           iframeRefs.current.forEach((iframe, idx) => {
             if (idx !== currentIndex && iframe?.contentWindow) {
               iframe.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
@@ -69,8 +62,6 @@ const VideoProvaSocialSection = () => {
           const seconds = Number(data.data.seconds ?? 0);
           const duration = durationRef.current[currentIndex];
           const startTime = getStartTime(currentIndex);
-
-          // right before end, return to start and pause (avoid replay/follow screen)
           if (duration > 0 && seconds >= duration - 0.25) {
             currentIframe.contentWindow.postMessage(
               JSON.stringify({ method: "setCurrentTime", value: startTime }),
@@ -90,16 +81,14 @@ const VideoProvaSocialSection = () => {
         }
       } catch {}
     };
-
     window.addEventListener("message", handleMessage);
     return () => window.removeEventListener("message", handleMessage);
   }, []);
 
-  // Register Vimeo event listeners once iframes are mounted
+  // Register Vimeo event listeners
   useEffect(() => {
     if (!isVisible || hasInitializedRef.current) return;
     hasInitializedRef.current = true;
-
     const timer = setTimeout(() => {
       iframeRefs.current.forEach((iframe) => {
         if (!iframe?.contentWindow) return;
@@ -109,9 +98,38 @@ const VideoProvaSocialSection = () => {
         iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
       });
     }, 600);
-
     return () => clearTimeout(timer);
   }, [isVisible]);
+
+  const handleThumbnailClick = (index: number) => {
+    setActivePlayers((prev) => {
+      const next = [...prev];
+      next[index] = true;
+      return next;
+    });
+
+    // Small delay to let iframe mount, then play
+    setTimeout(() => {
+      const iframe = iframeRefs.current[index];
+      if (iframe?.contentWindow) {
+        iframe.contentWindow.postMessage(JSON.stringify({ method: "play" }), "*");
+        iframe.contentWindow.postMessage(JSON.stringify({ method: "setVolume", value: 0.5 }), "*");
+
+        // Pause others
+        iframeRefs.current.forEach((other, idx) => {
+          if (idx !== index && other?.contentWindow) {
+            other.contentWindow.postMessage(JSON.stringify({ method: "pause" }), "*");
+          }
+        });
+
+        // Register events for this new iframe
+        iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "timeupdate" }), "*");
+        iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "play" }), "*");
+        iframe.contentWindow.postMessage(JSON.stringify({ method: "addEventListener", value: "ended" }), "*");
+        iframe.contentWindow.postMessage(JSON.stringify({ method: "getDuration" }), "*");
+      }
+    }, 800);
+  };
 
   const getIframeSrc = (videoId: string, index: number) => {
     const startTime = index === 2 ? "1s" : "0s";
@@ -144,33 +162,53 @@ const VideoProvaSocialSection = () => {
               className="rounded-2xl overflow-hidden border border-border/50 bg-card/40 shadow-[0_0_40px_rgba(0,0,0,0.4)] hover:border-primary/40 hover:shadow-[0_0_30px_hsl(145_80%_50%/0.15)] transition-all duration-300 cursor-pointer"
             >
               <div className="aspect-[9/16] w-full relative">
-                {isVisible ? (
-                  <iframe
-                    ref={(el) => { iframeRefs.current[index] = el; }}
-                    key={video.id}
-                    src={getIframeSrc(video.id, index)}
-                    className="w-full h-full"
-                    allow="autoplay; picture-in-picture"
-                    sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
-                    referrerPolicy="no-referrer"
-                  />
+                {activePlayers[index] ? (
+                  <>
+                    <iframe
+                      ref={(el) => { iframeRefs.current[index] = el; }}
+                      key={video.id}
+                      src={getIframeSrc(video.id, index)}
+                      className="w-full h-full"
+                      allow="autoplay; picture-in-picture"
+                      sandbox="allow-scripts allow-same-origin allow-presentation allow-popups"
+                      referrerPolicy="no-referrer"
+                    />
+                    {/* Block top bar */}
+                    <div
+                      className="absolute top-0 left-0 right-0 h-12 z-10"
+                      style={{ pointerEvents: "auto" }}
+                      onClick={(e) => e.preventDefault()}
+                      onContextMenu={(e) => e.preventDefault()}
+                    />
+                    {/* Block bottom-right buttons */}
+                    <div
+                      className="absolute bottom-0 right-0 w-[45%] h-12 z-10"
+                      style={{ pointerEvents: "auto" }}
+                      onClick={(e) => e.preventDefault()}
+                      onContextMenu={(e) => e.preventDefault()}
+                    />
+                  </>
                 ) : (
-                  <div className="w-full h-full bg-background" />
+                  /* Custom thumbnail overlay */
+                  <div
+                    className="w-full h-full relative group"
+                    onClick={() => handleThumbnailClick(index)}
+                  >
+                    <img
+                      src={`https://vumbnail.com/${video.id}.jpg`}
+                      alt={video.title}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all duration-300" />
+                    {/* Play button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 rounded-full bg-primary/90 group-hover:bg-primary group-hover:scale-110 flex items-center justify-center transition-all duration-300 shadow-lg shadow-primary/30">
+                        <Play className="w-7 h-7 text-primary-foreground ml-1" fill="currentColor" />
+                      </div>
+                    </div>
+                  </div>
                 )}
-                {/* Block top bar (Vimeo logo / links) */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-12 z-10"
-                  style={{ pointerEvents: "auto" }}
-                  onClick={(e) => e.preventDefault()}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-                {/* Block bottom-right buttons (settings, PiP, fullscreen, etc.) */}
-                <div
-                  className="absolute bottom-0 right-0 w-[45%] h-12 z-10"
-                  style={{ pointerEvents: "auto" }}
-                  onClick={(e) => e.preventDefault()}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
               </div>
             </motion.div>
           ))}
