@@ -1,11 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
+import thumbVideo1 from "@/assets/thumb-video-1.jpg";
+import thumbVideo2 from "@/assets/thumb-video-2.jpg";
+import thumbVideo3 from "@/assets/thumb-video-3.jpg";
 
 const videos = [
-  { id: "1173468505", title: "Depoimento 1" },
-  { id: "1173461380", title: "Depoimento 2" },
-  { id: "1173465376", title: "Depoimento 3" },
+  { id: "1173468505", title: "Depoimento 1", thumb: thumbVideo1 },
+  { id: "1173461380", title: "Depoimento 2", thumb: thumbVideo2 },
+  { id: "1173465376", title: "Depoimento 3", thumb: thumbVideo3 },
 ];
 
 const VideoProvaSocialSection = () => {
@@ -195,7 +198,7 @@ const VideoProvaSocialSection = () => {
                     onClick={() => handleThumbnailClick(index)}
                   >
                     <img
-                      src={`https://vumbnail.com/${video.id}.jpg`}
+                      src={video.thumb}
                       alt={video.title}
                       className="w-full h-full object-cover pointer-events-none"
                     />
