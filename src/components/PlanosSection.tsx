@@ -17,7 +17,7 @@ const plans = [
     link: "https://pay.lowify.com.br/checkout?product_id=bsqsCn",
   },
   {
-    emoji: "⭐",
+    emoji: "",
     name: "Plus 2 Telas Mensal",
     price: "R$ 44,99",
     features: [
