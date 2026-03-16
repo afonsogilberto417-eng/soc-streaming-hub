@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Clock } from "lucide-react";
+import { Check } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const plans = [
