@@ -20,7 +20,9 @@ const OfertaFinalSection = () => {
           </p>
 
           <motion.a
-            href="#"
+            href="https://wa.me/558596483469?text=Ol%C3%A1%2C%20quero%20fazer%20o%20teste%20de%207%20dias%20da%20SocialFlix!"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-3 px-6 sm:px-10 py-3 sm:py-4 rounded-lg bg-primary font-display font-bold text-base sm:text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-8"
