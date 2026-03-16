@@ -322,7 +322,7 @@ const AvaliacoesSection = () => {
           </button>
 
           {/* Phone frame */}
-          <div className="relative mx-auto" style={{ width: 340 }}>
+          <div className="relative mx-auto w-[280px] sm:w-[340px]">
             <div className="rounded-[3rem] border-[4px] border-[#1a1a1a] bg-[#000] overflow-hidden shadow-[0_0_60px_rgba(0,0,0,0.5)]">
               {/* Notch */}
               <div className="bg-[#000] flex justify-center pt-2 pb-0">
@@ -340,7 +340,7 @@ const AvaliacoesSection = () => {
               </div>
 
               {/* Dynamic content area */}
-              <div className="relative" style={{ height: 420 }}>
+              <div className="relative" style={{ height: "clamp(340px, 60vw, 420px)" }}>
                 {conversations.map((conv, i) => (
                   <ChatCard key={i} conv={conv} isActive={i === activeIndex} />
                 ))}

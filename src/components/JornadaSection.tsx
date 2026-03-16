@@ -12,10 +12,10 @@ const JornadaSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             Sua jornada <span className="text-gradient-neon">começa agora</span>
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Experimente a SocialFlix gratuitamente por 4 horas e descubra a melhor experiência em streaming com qualidade 4K, Full HD, HD e SD, estabilidade e ativação imediata.
           </p>
         </motion.div>

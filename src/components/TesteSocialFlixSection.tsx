@@ -13,10 +13,10 @@ const TesteSocialFlixSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             🔥 Teste <span className="text-gradient-neon">SocialFlix</span>
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Experimente a SocialFlix por 4 horas e descubra a melhor experiência em streaming. Exclusivo para Android.
           </p>
         </motion.div>
@@ -26,7 +26,7 @@ const TesteSocialFlixSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="card-glass rounded-2xl p-8 md:p-10 max-w-2xl mx-auto"
+          className="card-glass rounded-2xl p-6 sm:p-8 md:p-10 max-w-2xl mx-auto"
         >
           <div className="flex items-center gap-3 mb-6">
             <Rocket className="w-7 h-7 text-accent" />

@@ -27,7 +27,7 @@ const AcessoSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-display font-bold text-center mb-16"
+          className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-center mb-10 sm:mb-16"
         >
           O que você <span className="text-gradient-neon">tem acesso</span>
         </motion.h2>
@@ -40,7 +40,7 @@ const AcessoSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="card-glass rounded-xl p-6 flex flex-col items-center text-center gap-3 hover:border-primary/50 transition-colors"
+              className="card-glass rounded-xl p-4 sm:p-6 flex flex-col items-center text-center gap-2 sm:gap-3 hover:border-primary/50 transition-colors"
             >
               <item.icon className="w-8 h-8 text-primary" />
               <span className="text-sm md:text-base font-medium text-foreground">{item.label}</span>

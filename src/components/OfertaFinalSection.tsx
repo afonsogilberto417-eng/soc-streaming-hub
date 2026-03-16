@@ -11,11 +11,11 @@ const OfertaFinalSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-4">
             7 dias de teste apenas{" "}
             <span className="text-gradient-neon">R$ 9,99</span>
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-10">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-10">
             Experimente sem riscos.
           </p>
 
@@ -23,7 +23,7 @@ const OfertaFinalSection = () => {
             href="#"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-8"
+            className="inline-flex items-center gap-3 px-6 sm:px-10 py-3 sm:py-4 rounded-lg bg-primary font-display font-bold text-base sm:text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-8"
           >
             <Shield className="w-5 h-5" />
             COMEÇAR TESTE POR R$ 9,99

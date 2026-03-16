@@ -73,12 +73,14 @@ const PlanosSection = () => {
           viewport={{ once: true }}
           className="flex items-center justify-center gap-3 mb-6"
         >
-          <div className="flex items-center gap-2 bg-destructive/20 border border-destructive/40 rounded-full px-5 py-2.5">
-            <Clock className="w-5 h-5 text-destructive animate-pulse" />
-            <span className="text-destructive font-display font-bold text-lg tracking-wide">
-              {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
-            </span>
-            <span className="text-destructive/80 text-sm font-medium ml-1">
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2 bg-destructive/20 border border-destructive/40 rounded-full px-4 sm:px-5 py-2 sm:py-2.5">
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-destructive animate-pulse" />
+              <span className="text-destructive font-display font-bold text-base sm:text-lg tracking-wide">
+                {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
+              </span>
+            </div>
+            <span className="text-destructive/80 text-xs sm:text-sm font-medium">
               Oferta por tempo limitado!
             </span>
           </div>
@@ -93,7 +95,7 @@ const PlanosSection = () => {
           Escolha seu <span className="text-gradient-neon">plano</span>
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}

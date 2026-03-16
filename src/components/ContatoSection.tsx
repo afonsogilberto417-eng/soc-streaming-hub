@@ -11,7 +11,7 @@ const ContatoSection = () => {
           viewport={{ once: true }}
         >
           <MessageCircle className="w-12 h-12 text-primary mx-auto mb-6" />
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             Fale <span className="text-gradient-neon">Conosco</span>
           </h2>
           <p className="text-muted-foreground text-lg">

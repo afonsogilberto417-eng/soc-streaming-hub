@@ -19,12 +19,12 @@ const HeroSection = () => {
           className="w-32 h-32 md:w-40 md:h-40 rounded-full mb-8 glow-accent"
         />
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-center mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-center mb-4 sm:mb-6">
           CONHEÇA A{" "}
           <span className="text-gradient-neon">SOCIALFLIX</span>
         </h1>
 
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl text-center mb-10 leading-relaxed">
+        <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl text-center mb-8 sm:mb-10 leading-relaxed px-2">
           Plataforma completa de streaming com mais de 500 canais, filmes, séries e futebol ao vivo. Qualidade 4K, Full HD, HD e SD, estabilidade e ativação imediata.
         </p>
 
