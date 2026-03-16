@@ -20,7 +20,7 @@ const OfertaFinalSection = () => {
           </p>
 
           <motion.a
-            href="https://wa.me/558596483469?text=Ol%C3%A1%2C%20quero%20fazer%20o%20teste%20de%207%20dias%20da%20SocialFlix!"
+            href="https://web.whatsapp.com/send?phone=558596483469&text=Ol%C3%A1%2C%20quero%20fazer%20o%20teste%20de%207%20dias%20da%20SocialFlix!"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
