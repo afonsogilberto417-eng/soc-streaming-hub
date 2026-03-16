@@ -1,5 +1,5 @@
 import HeroSection from "@/components/HeroSection";
-
+import FloatingTimer from "@/components/FloatingTimer";
 import JornadaSection from "@/components/JornadaSection";
 import AcessoSection from "@/components/AcessoSection";
 import PlanosSection from "@/components/PlanosSection";
@@ -15,7 +15,8 @@ import SocialProofPopup from "@/components/SocialProofPopup";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pt-10">
+      <FloatingTimer />
       <SocialProofPopup />
       <HeroSection />
       
