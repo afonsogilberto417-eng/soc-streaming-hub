@@ -18,7 +18,7 @@ const ContatoSection = () => {
             Tire suas dúvidas ou faça seu pedido pelo WhatsApp.
           </p>
           <motion.a
-            href="https://wa.me/message/H2QK6ZKW6EI6F1"
+            href="https://wa.me/558596483469?text=Ol%C3%A1!%20%F0%9F%91%8B%20Vim%20pelo%20site%20da%20Socialflix%20e%20tenho%20interesse%20em%20contratar%20um%20plano.%20Pode%20me%20enviar%20mais%20informa%C3%A7%C3%B5es%3F"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
