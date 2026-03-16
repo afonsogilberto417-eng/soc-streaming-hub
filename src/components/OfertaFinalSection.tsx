@@ -11,7 +11,7 @@ const OfertaFinalSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-4">
             7 dias de teste apenas{" "}
             <span className="text-gradient-neon">R$ 9,99</span>
           </h2>
