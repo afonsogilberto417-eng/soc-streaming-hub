@@ -17,7 +17,7 @@ const TesteSocialFlixSection = () => {
             🔥 Teste <span className="text-gradient-neon">SocialFlix</span>
           </h2>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Experimente a SocialFlix gratuitamente por 7 dias e descubra a melhor experiência em streaming. Exclusivo para Android.
+            Experimente a SocialFlix por 4 horas e descubra a melhor experiência em streaming. Exclusivo para Android.
           </p>
         </motion.div>
 
@@ -31,14 +31,14 @@ const TesteSocialFlixSection = () => {
           <div className="flex items-center gap-3 mb-6">
             <Rocket className="w-7 h-7 text-accent" />
             <h3 className="text-2xl font-display font-bold text-foreground">
-              🚀 Teste Completo – 7 Dias Grátis
+              🚀 Teste Rápido – 4 Horas
             </h3>
           </div>
 
           <ul className="space-y-4 mb-8">
             <li className="flex items-center gap-3 text-foreground">
               <Clock className="w-5 h-5 text-primary flex-shrink-0" />
-              Acesso completo por 7 dias
+              Acesso completo por 4 horas
             </li>
             <li className="flex items-center gap-3 text-foreground">
               <Smartphone className="w-5 h-5 text-primary flex-shrink-0" />
@@ -55,12 +55,14 @@ const TesteSocialFlixSection = () => {
           </p>
 
           <motion.a
-            href="#"
+            href="https://wa.me/558596483469?text=Ol%C3%A1%2C%20quero%20fazer%20o%20teste%20da%20SocialFlix!"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="block text-center px-8 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-6"
           >
-            👉 COMEÇAR TESTE 7 DIAS – Pix ou Cartão
+            👉 COMEÇAR TESTE DE 4 HORAS
           </motion.a>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
