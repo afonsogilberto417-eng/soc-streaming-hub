@@ -9,7 +9,7 @@ const GarantiaSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="card-glass rounded-2xl p-10 flex flex-col items-center gap-6"
+          className="card-glass rounded-2xl p-6 sm:p-10 flex flex-col items-center gap-4 sm:gap-6"
         >
           <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
             <ShieldCheck className="w-10 h-10 text-primary" />
