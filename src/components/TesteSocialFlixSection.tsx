@@ -16,7 +16,7 @@ const TesteSocialFlixSection = () => {
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold mb-4 sm:mb-6">
             🔥 Teste <span className="text-gradient-neon">SocialFlix</span>
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Experimente a SocialFlix por 4 horas e descubra a melhor experiência em streaming. Exclusivo para Android.
           </p>
         </motion.div>
