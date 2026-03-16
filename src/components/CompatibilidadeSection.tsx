@@ -24,7 +24,7 @@ const CompatibilidadeSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-display font-bold text-center mb-16"
+          className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-center mb-10 sm:mb-16"
         >
           Compatível com <span className="text-gradient-neon">todos os seus dispositivos</span>
         </motion.h2>

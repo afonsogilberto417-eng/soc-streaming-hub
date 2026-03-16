@@ -24,7 +24,7 @@ const HeroSection = () => {
           <span className="text-gradient-neon">SOCIALFLIX</span>
         </h1>
 
-        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl text-center mb-10 leading-relaxed">
+        <p className="text-muted-foreground text-base sm:text-lg md:text-xl max-w-2xl text-center mb-8 sm:mb-10 leading-relaxed px-2">
           Plataforma completa de streaming com mais de 500 canais, filmes, séries e futebol ao vivo. Qualidade 4K, Full HD, HD e SD, estabilidade e ativação imediata.
         </p>
 

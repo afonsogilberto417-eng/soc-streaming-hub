@@ -40,7 +40,7 @@ const AcessoSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="card-glass rounded-xl p-6 flex flex-col items-center text-center gap-3 hover:border-primary/50 transition-colors"
+              className="card-glass rounded-xl p-4 sm:p-6 flex flex-col items-center text-center gap-2 sm:gap-3 hover:border-primary/50 transition-colors"
             >
               <item.icon className="w-8 h-8 text-primary" />
               <span className="text-sm md:text-base font-medium text-foreground">{item.label}</span>

@@ -340,7 +340,7 @@ const AvaliacoesSection = () => {
               </div>
 
               {/* Dynamic content area */}
-              <div className="relative" style={{ height: 420 }}>
+              <div className="relative" style={{ height: "clamp(340px, 60vw, 420px)" }}>
                 {conversations.map((conv, i) => (
                   <ChatCard key={i} conv={conv} isActive={i === activeIndex} />
                 ))}

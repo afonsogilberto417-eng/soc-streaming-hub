@@ -14,7 +14,7 @@ const GarantiaSection = () => {
           <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center">
             <ShieldCheck className="w-10 h-10 text-primary" />
           </div>
-          <h2 className="text-2xl md:text-4xl font-display font-bold text-foreground">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-foreground">
             Garantia de <span className="text-gradient-neon">7 dias</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">

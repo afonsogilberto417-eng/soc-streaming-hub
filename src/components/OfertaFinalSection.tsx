@@ -23,7 +23,7 @@ const OfertaFinalSection = () => {
             href="#"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-8"
+            className="inline-flex items-center gap-3 px-6 sm:px-10 py-3 sm:py-4 rounded-lg bg-primary font-display font-bold text-base sm:text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-8"
           >
             <Shield className="w-5 h-5" />
             COMEÇAR TESTE POR R$ 9,99

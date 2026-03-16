@@ -26,7 +26,7 @@ const TesteSocialFlixSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="card-glass rounded-2xl p-8 md:p-10 max-w-2xl mx-auto"
+          className="card-glass rounded-2xl p-6 sm:p-8 md:p-10 max-w-2xl mx-auto"
         >
           <div className="flex items-center gap-3 mb-6">
             <Rocket className="w-7 h-7 text-accent" />

@@ -95,7 +95,7 @@ const PlanosSection = () => {
           Escolha seu <span className="text-gradient-neon">plano</span>
         </motion.h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
