@@ -19,7 +19,7 @@ const HeroSection = () => {
           className="w-32 h-32 md:w-40 md:h-40 rounded-full mb-8 glow-accent"
         />
 
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-center mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight text-center mb-4 sm:mb-6">
           CONHEÇA A{" "}
           <span className="text-gradient-neon">SOCIALFLIX</span>
         </h1>
