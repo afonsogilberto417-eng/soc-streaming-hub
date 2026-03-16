@@ -55,7 +55,7 @@ const TesteSocialFlixSection = () => {
           </p>
 
           <motion.a
-            href="https://web.whatsapp.com/send?phone=558596483469&text=Ol%C3%A1%2C%20quero%20fazer%20o%20teste%20da%20SocialFlix!"
+            href="https://wa.me/message/H2QK6ZKW6EI6F1"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
