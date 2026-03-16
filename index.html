@@ -1,41 +1,40 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SocialFlix - Streaming Premium com 500+ Canais</title>
-    <meta name="description" content="Plataforma completa de streaming com mais de 500 canais, filmes, séries e futebol ao vivo." />
-    <meta name="author" content="SocialFlix" />
-    <meta name="generator" content="" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>SocialFlix+ CanaisLovable App</title>
+    <meta name="description" content="projeto soci">
+    <meta name="author" content="Lovable" />
 
-    <meta property="og:title" content="SocialFlix - Streaming Premium" />
-    <meta property="og:description" content="Plataforma completa de streaming com mais de 500 canais, filmes, séries e futebol ao vivo." />
+    <!-- TODO: Update og:title to match your application name -->
+    
+    
     <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/wDLDPb6Yv5Vo9DBI2NBOryQGv7R2/social-images/social-1773703389736-unnamed_(1).webp">
 
     <meta name="twitter:card" content="summary_large_image" />
-  </head>
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/wDLDPb6Yv5Vo9DBI2NBOryQGv7R2/social-images/social-1773703389736-unnamed_(1).webp">
+    <meta property="og:title" content="SocialFlix+ CanaisLovable App">
+  <meta name="twitter:title" content="SocialFlix+ CanaisLovable App">
+  <meta property="og:description" content="projeto soci">
+  <meta name="twitter:description" content="projeto soci">
+</head>
 
   <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Block dev tools shortcuts
       document.addEventListener('keydown', function(e) {
         if (e.key === 'F12') { e.preventDefault(); return false; }
         if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) { e.preventDefault(); return false; }
         if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S')) { e.preventDefault(); return false; }
         if (e.ctrlKey && (e.key === 'c' || e.key === 'C' || e.key === 'a' || e.key === 'A')) { e.preventDefault(); return false; }
-        // Block Print Screen
-        if (e.key === 'PrintScreen') { e.preventDefault(); return false; }
-        // Block Ctrl+P (print)
-        if (e.ctrlKey && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); return false; }
       });
       document.addEventListener('copy', function(e) { e.preventDefault(); });
       document.addEventListener('cut', function(e) { e.preventDefault(); });
-      // Anti-debugger (only in production)
-      if (location.hostname !== 'localhost' && !location.hostname.includes('lovable')) {
-        setInterval(function() { debugger; }, 1000);
-      }
     </script>
   </body>
 </html>
