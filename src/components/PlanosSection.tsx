@@ -53,16 +53,6 @@ const plans = [
 ];
 
 const PlanosSection = () => {
-  const [timeLeft, setTimeLeft] = useState(5 * 60);
-
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-    const timer = setInterval(() => setTimeLeft((t) => Math.max(0, t - 1)), 1000);
-    return () => clearInterval(timer);
-  }, [timeLeft]);
-
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
 
   return (
     <section id="planos" className="py-24 px-4 bg-gradient-section">
