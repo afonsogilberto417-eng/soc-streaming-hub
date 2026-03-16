@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Check, Clock } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Check } from "lucide-react";
+
 
 const plans = [
   {
@@ -53,39 +53,10 @@ const plans = [
 ];
 
 const PlanosSection = () => {
-  const [timeLeft, setTimeLeft] = useState(5 * 60);
-
-  useEffect(() => {
-    if (timeLeft <= 0) return;
-    const timer = setInterval(() => setTimeLeft((t) => Math.max(0, t - 1)), 1000);
-    return () => clearInterval(timer);
-  }, [timeLeft]);
-
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
 
   return (
     <section id="planos" className="py-24 px-4 bg-gradient-section">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex items-center justify-center gap-3 mb-6"
-        >
-          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2 bg-destructive/20 border border-destructive/40 rounded-full px-4 sm:px-5 py-2 sm:py-2.5">
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-destructive animate-pulse" />
-              <span className="text-destructive font-display font-bold text-base sm:text-lg tracking-wide">
-                {String(minutes).padStart(2, "0")}:{String(seconds).padStart(2, "0")}
-              </span>
-            </div>
-            <span className="text-destructive/80 text-xs sm:text-sm font-medium">
-              Oferta por tempo limitado!
-            </span>
-          </div>
-        </motion.div>
-
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
