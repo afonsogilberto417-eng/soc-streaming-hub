@@ -58,8 +58,21 @@ const TesteSocialFlixSection = () => {
             href="https://wa.me/558596483469?text=Ol%C3%A1%2C%20quero%20fazer%20o%20teste%20da%20SocialFlix!"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
+            animate={{
+              scale: [1, 1.04, 1],
+              boxShadow: [
+                "0 0 0 0 hsl(var(--primary) / 0.4)",
+                "0 0 0 12px hsl(var(--primary) / 0)",
+                "0 0 0 0 hsl(var(--primary) / 0)"
+              ]
+            }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
             className="block text-center px-8 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-6"
           >
             👉 COMEÇAR TESTE DE 4 HORAS
