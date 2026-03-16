@@ -27,7 +27,7 @@ const AcessoSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-display font-bold text-center mb-16"
+          className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-center mb-10 sm:mb-16"
         >
           O que você <span className="text-gradient-neon">tem acesso</span>
         </motion.h2>
