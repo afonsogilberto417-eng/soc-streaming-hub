@@ -15,7 +15,7 @@ const OfertaFinalSection = () => {
             7 dias de teste apenas{" "}
             <span className="text-gradient-neon">R$ 9,99</span>
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-10">
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-8 sm:mb-10">
             Experimente sem riscos.
           </p>
 
