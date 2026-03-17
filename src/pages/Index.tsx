@@ -9,6 +9,7 @@ import AvaliacoesSection from "@/components/AvaliacoesSection";
 import VideoProvaSocialSection from "@/components/VideoProvaSocialSection";
 import FAQSection from "@/components/FAQSection";
 import ContatoSection from "@/components/ContatoSection";
+import TesteSocialFlixSection from "@/components/TesteSocialFlixSection";
 
 import Footer from "@/components/Footer";
 import SocialProofPopup from "@/components/SocialProofPopup";
@@ -21,6 +22,7 @@ const Index = () => {
       <HeroSection />
       
       <JornadaSection />
+      <TesteSocialFlixSection />
       <AcessoSection />
       <PlanosSection />
       <GarantiaSection />
