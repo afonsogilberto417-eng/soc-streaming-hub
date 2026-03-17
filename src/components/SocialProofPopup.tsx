@@ -57,7 +57,7 @@ const SocialProofPopup = () => {
 
     const interval = setInterval(() => {
       showNext();
-    }, 15000);
+    }, 5000);
 
     return () => {
       clearTimeout(initialDelay);
