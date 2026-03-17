@@ -211,7 +211,7 @@ const ChatCard = ({ conv, isActive }: { conv: Conversation; isActive: boolean })
     <div className="bg-[#075e54] px-3 py-2.5 flex items-center gap-2.5">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
       <div className="w-10 h-10 rounded-full bg-[#dfe5e7] flex items-center justify-center overflow-hidden flex-shrink-0">
-        <img src={conv.avatar} alt={conv.name} className="w-full h-full object-cover" />
+        <img src={conv.avatar} alt={conv.name} loading="lazy" className="w-full h-full object-cover" />
       </div>
       <div className="flex-1 min-w-0">
         <p className="text-white text-[15px] font-medium truncate line-through decoration-[#ff4444]/70 decoration-2">{conv.name}</p>
