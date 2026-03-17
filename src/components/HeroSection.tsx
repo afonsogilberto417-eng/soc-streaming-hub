@@ -38,9 +38,9 @@ const HeroSection = () => {
         className="relative z-10 mt-8 flex flex-col items-center gap-2 cursor-pointer"
         onClick={() => window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' })}
       >
-        <span className="text-muted-foreground text-sm tracking-widest uppercase">Role para baixo</span>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-primary">
-          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <span className="text-gradient-neon text-lg md:text-xl font-bold tracking-widest uppercase drop-shadow-[0_0_10px_hsl(var(--primary)/0.5)]">Role para baixo</span>
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className="text-primary drop-shadow-[0_0_8px_hsl(var(--primary)/0.6)]">
+          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </motion.div>
 
