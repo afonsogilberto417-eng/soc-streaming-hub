@@ -30,6 +30,20 @@ const HeroSection = () => {
 
       </motion.div>
 
+      {/* Scroll down indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ delay: 1.2, duration: 1.5, repeat: Infinity, repeatType: "loop" }}
+        className="relative z-10 mt-8 flex flex-col items-center gap-2 cursor-pointer"
+        onClick={() => window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' })}
+      >
+        <span className="text-muted-foreground text-sm tracking-widest uppercase">Role para baixo</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-primary">
+          <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </motion.div>
+
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
