@@ -55,7 +55,7 @@ const TesteSocialFlixSection = () => {
           </p>
 
           <motion.a
-            href="https://wa.me/558596483469?text=Olá!%20Vim%20pelo%20site%20da%20Socialflix%20e%20tenho%20interesse%20em%20contratar%20um%20plano."
+            href="https://wa.me/558596483469?text=Olá!%20Vim%20pelo%20site%20da%20Socialflix%20e%20gostaria%20de%20solicitar%20o%20teste%20gratuito%20de%204%20horas.%20Pode%20me%20enviar%20o%20acesso%3F"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
@@ -63,9 +63,9 @@ const TesteSocialFlixSection = () => {
             animate={{
               scale: [1, 1.04, 1],
               boxShadow: [
-                "0 0 0 0 hsl(var(--primary) / 0.4)",
-                "0 0 0 12px hsl(var(--primary) / 0)",
-                "0 0 0 0 hsl(var(--primary) / 0)"
+                "0 0 0 0 rgba(37,211,102,0.4)",
+                "0 0 0 12px rgba(37,211,102,0)",
+                "0 0 0 0 rgba(37,211,102,0)"
               ]
             }}
             transition={{
@@ -73,9 +73,9 @@ const TesteSocialFlixSection = () => {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            className="block text-center px-8 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-6"
+            className="block text-center px-8 py-4 rounded-lg bg-[#25D366] font-display font-bold text-lg text-white hover:bg-[#20bd5a] transition-shadow duration-300 mb-6"
           >
-            👉 COMEÇAR TESTE DE 4 HORAS
+            📺 Testar 4 Horas Grátis
           </motion.a>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
