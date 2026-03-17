@@ -12,3 +12,4 @@ powershell -Command "Compress-Archive -Path 'dist\*' -DestinationPath 'site-expo
 
 echo Arquivo site-export.zip criado com sucesso!
 echo Suba o conteudo do ZIP para o public_html da Hostgator.
+pause
