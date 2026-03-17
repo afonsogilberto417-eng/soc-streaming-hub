@@ -16,6 +16,9 @@ const HeroSection = () => {
         <img
           src={logo}
           alt="SocialFlix"
+          width={160}
+          height={160}
+          fetchPriority="high"
           className="w-32 h-32 md:w-40 md:h-40 rounded-full mb-8 glow-accent"
         />
 

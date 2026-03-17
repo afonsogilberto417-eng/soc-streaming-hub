@@ -1,18 +1,18 @@
+import { lazy, Suspense } from "react";
 import HeroSection from "@/components/HeroSection";
 import FloatingTimer from "@/components/FloatingTimer";
-import JornadaSection from "@/components/JornadaSection";
-import AcessoSection from "@/components/AcessoSection";
-import PlanosSection from "@/components/PlanosSection";
-import GarantiaSection from "@/components/GarantiaSection";
-import CompatibilidadeSection from "@/components/CompatibilidadeSection";
-import AvaliacoesSection from "@/components/AvaliacoesSection";
-import VideoProvaSocialSection from "@/components/VideoProvaSocialSection";
-import FAQSection from "@/components/FAQSection";
-import ContatoSection from "@/components/ContatoSection";
-
-
-import Footer from "@/components/Footer";
 import SocialProofPopup from "@/components/SocialProofPopup";
+
+const JornadaSection = lazy(() => import("@/components/JornadaSection"));
+const AcessoSection = lazy(() => import("@/components/AcessoSection"));
+const PlanosSection = lazy(() => import("@/components/PlanosSection"));
+const GarantiaSection = lazy(() => import("@/components/GarantiaSection"));
+const CompatibilidadeSection = lazy(() => import("@/components/CompatibilidadeSection"));
+const AvaliacoesSection = lazy(() => import("@/components/AvaliacoesSection"));
+const VideoProvaSocialSection = lazy(() => import("@/components/VideoProvaSocialSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
+const ContatoSection = lazy(() => import("@/components/ContatoSection"));
+const Footer = lazy(() => import("@/components/Footer"));
 
 const Index = () => {
   return (
@@ -21,17 +21,18 @@ const Index = () => {
       <SocialProofPopup />
       <HeroSection />
       
-      <JornadaSection />
-      <AcessoSection />
-      <PlanosSection />
-      <GarantiaSection />
-      <CompatibilidadeSection />
-      <AvaliacoesSection />
-      <VideoProvaSocialSection />
-      <FAQSection />
-      <ContatoSection />
-      
-      <Footer />
+      <Suspense fallback={null}>
+        <JornadaSection />
+        <AcessoSection />
+        <PlanosSection />
+        <GarantiaSection />
+        <CompatibilidadeSection />
+        <AvaliacoesSection />
+        <VideoProvaSocialSection />
+        <FAQSection />
+        <ContatoSection />
+        <Footer />
+      </Suspense>
     </div>
   );
 };
