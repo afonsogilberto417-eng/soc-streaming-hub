@@ -54,7 +54,9 @@ const JornadaSection = () => {
           </p>
 
           <motion.a
-            href="#"
+            href="https://wa.me/558596483469?text=Olá!%20Vim%20pelo%20site%20da%20Socialflix%20e%20gostaria%20de%20solicitar%20o%20teste%20gratuito%20de%204%20horas.%20Pode%20me%20enviar%20o%20acesso%3F"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="block text-center px-8 py-4 rounded-lg bg-primary font-display font-bold text-lg text-primary-foreground glow-green hover:glow-green-strong transition-shadow duration-300 mb-6"
