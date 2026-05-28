@@ -23,7 +23,7 @@ const plans = [
   {
     emoji: "",
     name: "Plus 2 Telas Mensal",
-    oldPrice: "R$ 50,00",
+    oldPrice: "R$ 60,00",
     price: "R$ 44,99",
     features: ["2 telas simultâneas", ...commonFeatures],
     highlight: true,
@@ -33,7 +33,7 @@ const plans = [
   {
     emoji: "",
     name: "Trimestral 2 Telas",
-    oldPrice: "R$ 120,00",
+    oldPrice: "R$ 135,00",
     price: "R$ 114,97",
     features: ["2 telas simultâneas", ...commonFeatures],
     badge: "💰 Melhor custo-benefício",
