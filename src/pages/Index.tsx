@@ -6,6 +6,7 @@ import SocialProofPopup from "@/components/SocialProofPopup";
 const JornadaSection = lazy(() => import("@/components/JornadaSection"));
 const AcessoSection = lazy(() => import("@/components/AcessoSection"));
 const PlanosSection = lazy(() => import("@/components/PlanosSection"));
+const TesteSocialFlixSection = lazy(() => import("@/components/TesteSocialFlixSection"));
 const GarantiaSection = lazy(() => import("@/components/GarantiaSection"));
 const CompatibilidadeSection = lazy(() => import("@/components/CompatibilidadeSection"));
 const AvaliacoesSection = lazy(() => import("@/components/AvaliacoesSection"));
@@ -24,6 +25,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <JornadaSection />
         <AcessoSection />
+        <TesteSocialFlixSection />
         <PlanosSection />
         <GarantiaSection />
         <CompatibilidadeSection />
