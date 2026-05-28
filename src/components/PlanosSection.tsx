@@ -15,8 +15,8 @@ const plans = [
   {
     emoji: "",
     name: "Essencial 1 Tela Mensal",
-    oldPrice: "R$ 40,00",
-    price: "R$ 34,99",
+    oldPrice: "R$ 45,00",
+    price: "R$ 39,99",
     features: ["1 tela simultânea", ...commonFeatures],
     link: "https://pay.lowify.com.br/checkout?product_id=bsqsCn",
   },
