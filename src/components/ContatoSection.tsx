@@ -31,7 +31,7 @@ const ContatoSection = () => {
             FALAR NO WHATSAPP
           </motion.a>
           <p className="text-muted-foreground text-sm mt-4">
-            📱 (85) 9648-3469
+            ​
           </p>
         </motion.div>
       </div>
