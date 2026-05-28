@@ -25,6 +25,7 @@ const Index = () => {
       <Suspense fallback={null}>
         <JornadaSection />
         <AcessoSection />
+        <TesteSocialFlixSection />
         <PlanosSection />
         <GarantiaSection />
         <CompatibilidadeSection />
